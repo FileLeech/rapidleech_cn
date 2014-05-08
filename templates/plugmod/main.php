@@ -486,6 +486,7 @@ if (is_numeric($delete_delay) && $delete_delay > 0){
 <?php
 print CREDITS;
 ?><br />
+<?php echo lang(394); ?>
 </div>
 </td>
 </tr>

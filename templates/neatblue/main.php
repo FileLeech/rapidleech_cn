@@ -468,7 +468,7 @@ ob_end_flush();
 }
 ?>
 <hr />
-<?php echo CREDITS;?><footer>&copy; Design : blacklizt</footer>
+<?php echo CREDITS;?><footer>&copy; Design : blacklizt<br><?php echo lang(394); ?></footer>
 </div>
 </td>
 </tr>
