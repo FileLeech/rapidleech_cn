@@ -2,9 +2,9 @@
 if (!defined('RAPIDLEECH')) { require_once("index.html"); exit; }
 $premium_acc = array();
 
-### Remove '//' from the beginning and enter your username and password for enable premium account ###
+### 移除开头的'//'并输入您的用户名及密码以使用高级帐号###
 //$premium_acc["rapidshare_com"] = array('user' => 'your username', 'pass' => 'your password');
-// For multiple rapidshare premium accounts only - if you are using multiple accounts below, comment out the line above
+// 只使用于多个rapidshare高级帐号 - 如果您在下一行使用多个帐号，请注释掉上面一行
 //$premium_acc["rapidshare_com"] = array(array('user' => 'your username1', 'pass' => 'your password1'),array('user' => 'your username2', 'pass' => 'your password2'),array('user' => 'your username3', 'pass' => 'your password3'));
 //$premium_acc["netload_in"] = array('user' => 'your username', 'pass' => 'your password');
 //$premium_acc["cramit_in"] = array('user' => 'your username', 'pass' => 'your password');
@@ -60,21 +60,21 @@ $premium_acc = array();
 //$premium_acc ["ex-load_com"] = array('user' => 'your username', 'pass' => 'your password');
 //$premium_acc ["datafile_com"] = array('user' => 'your username', 'pass' => 'your password');
 
-###Premium cookie configuration, dont use this if you have already set another premium account config
+###高级帐号cookie设置，如果您已经设置了另一个高级帐号请不要使用这个
 //$premium_acc["hotfile_com"] = array('cookie' => 'your premium cookie');
 //$premium_acc["rapidshare_com"] = array('cookie' => 'your premium cookie');
 //$premium_acc["uploaded_net"] = array('cookie' => 'your premium cookie');
 //$premium_acc["uploading_com"] = array('cookie' => 'your premium cookie');
 //$premium_acc["netload_in"] = array('cookie' => 'your premium cookie');
 
-###Premium key configuration, dont use this if you have already set another premium account config
+###高级帐号密匙设置，如果您已经设置了另一个高级帐号请不要使用这个
 //$premium_acc["letitbit_net"] = array('pass' => 'your password');
 //$premium_acc["vip_file_com"] = array('pass' => 'your password');
 //$premium_acc["shareflare_net"] = array('pass' => 'your password');
 //$premium_acc["fileflyer_com"] = array('pass' => 'your password');
 //$premium_acc["livefile_org"] = array('key' => 'your password');
 
-###Auto Download Premium Account###
-//$premium_acc["au_dl"] = array('user' => 'your username', 'pass' => 'your password'); # Remove '//' from the beginning and enter your username and password for rapidshare.de premium account
+###批量下载高级账户###
+//$premium_acc["au_dl"] = array('user' => 'your username', 'pass' => 'your password'); # 移除开头的'//'并输入您的用户名和密码以使用rapidshare.de高级帐号
 
 ?>

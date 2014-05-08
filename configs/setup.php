@@ -36,7 +36,7 @@ require_once('classes/other.php');
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head><title>Rapidleech Setup</title>
+<head><title>安装Rapidleech</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link title="Rapidleech Style" href="<?php echo TEMPLATE_DIR; ?>styles/rl_style_pm.css?<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 <?php
@@ -206,7 +206,7 @@ $(document).ready(function() {
 <body>
 <center><img src="<?php echo TEMPLATE_DIR; ?>images/logo_pm.gif" alt="RapidLeech PlugMod" border="0" /></center>
 <br />
-<noscript><div class="div_error">This page won't work without JavaScript, please enable JavaScript and refresh the page.</div></noscript>
+<noscript><div class="div_error">本页面无法在没有JavaScript的情况下工作，请开启JavaScript并刷新页面</div></noscript>
 <?php
 
 if (isset($_POST['setup_save']) && $_POST['setup_save'] == 1) {
@@ -265,26 +265,26 @@ if (isset($_POST['setup_save']) && $_POST['setup_save'] == 1) {
 	if (!@write_file(CONFIG_DIR."config.php", $opt, 1)) echo '<div class="div_error">It was not possible to write the configuration<br />Set permissions of "configs" folder to 0777 and try again</div>';
 	else {
 		if (is_file(CONFIG_DIR.'config_old.php')) { if (@!unlink(CONFIG_DIR.'config_old.php') && is_file(CONFIG_DIR.'config_old.php')) { '<div class="div_message">It was not possible to delete the old configuration.<br />Manually delete "configs/config_old.php"</div><br />'; } }
-		echo '<div class="div_message">Configuration saved! Click <a href="'.$PHP_SELF.'">here</a> to continue to rapidleech</div>';
+		echo '<div class="div_message">设置已保存！ 点击 <a href="'.$PHP_SELF.'">这里</a> 开始使用rapidleech</div>';
 	}
 } else {
 ?>
-<div class="div_setup">Rapidleech Setup</div>
+<div class="div_setup">安装Rapidleech</div>
 
-<div class="div_message"><?php echo ($old_options ? 'Old' : 'Default'); ?> rapidleech options loaded</div>
+<div class="div_message"><?php echo ($old_options ? 'Old' : 'Default'); ?> rapidleech设置已载入</div>
 
 <form method="post" enctype="multipart/form-data" name="setup_form" action="<?php echo $PHP_SELF; ?>">
 <table align="center" class="table_cat">
 	<tr><td>
 
 		<div class="div_main">
-			<div class="div_title">General Options</div>
+			<div class="div_title">基本选项</div>
 			<div class="div_opt">
 				<table class="table_opt">
-					<tr><td>Secret key for cookie encryption<br />Make up a random one to protect your premium cookies (max length: 56)</td><td><input type="text" value="" size="56" id="opt_secretkey" name="opt_secretkey" /></td></tr>
-					<tr><td>Download Directory</td><td><input type="text" id="opt_download_dir" name="opt_download_dir" /></td></tr>
-					<tr><td>Allow users to change<br />download directory</td><td><input type="checkbox" value="1" name="opt_download_dir_is_changeable" id="opt_download_dir_is_changeable" /></td></tr>
-					<tr><td>Auto Delete in minutes</td>
+					<tr><td>cookie加密的密匙<br />输入随机字符以保护您网站的cookies(最大长度: 56)</td><td><input type="text" value="" size="56" id="opt_secretkey" name="opt_secretkey" /></td></tr>
+					<tr><td>下载目录</td><td><input type="text" id="opt_download_dir" name="opt_download_dir" /></td></tr>
+					<tr><td>允许用户修改下载目录</td><td><input type="checkbox" value="1" name="opt_download_dir_is_changeable" id="opt_download_dir_is_changeable" /></td></tr>
+					<tr><td>自动删除文件(分钟)</td>
 						<td><select size="1" name="opt_delete_delay" id="opt_delete_delay">
 							<option value="0">Disabled</option>
 							<option value="3600">60</option>
@@ -295,26 +295,26 @@ if (isset($_POST['setup_save']) && $_POST['setup_save'] == 1) {
 							<option value="other">Other</option>
 						</select></td>
 					</tr>
-					<tr><td>File name prefix</td><td><input type="text" id="opt_rename_prefix" name="opt_rename_prefix" /></td></tr>
-					<tr><td>File name suffix</td><td><input type="text" id="opt_rename_suffix" name="opt_rename_suffix" /></td></tr>
-					<tr><td>Replace spaces for<br />underscore in file names</td><td><input type="checkbox" value="1" name="opt_rename_underscore" id="opt_rename_underscore" /></td></tr>
-					<tr><td>Bandwidth saving</td><td><input type="checkbox" value="1" name="opt_bw_save" id="opt_bw_save" /></td></tr>
-					<tr><td>File size limit in MiB</td>
+					<tr><td>文件名前缀</td><td><input type="text" id="opt_rename_prefix" name="opt_rename_prefix" /></td></tr>
+					<tr><td>文件名后缀</td><td><input type="text" id="opt_rename_suffix" name="opt_rename_suffix" /></td></tr>
+					<tr><td>替换文件名空格为下划线</td><td><input type="checkbox" value="1" name="opt_rename_underscore" id="opt_rename_underscore" /></td></tr>
+					<tr><td>节省宽带</td><td><input type="checkbox" value="1" name="opt_bw_save" id="opt_bw_save" /></td></tr>
+					<tr><td>限制下载文件大小(MB)</td>
 						<td><select size="1" name="opt_file_size_limit" id="opt_file_size_limit">
-							<option value="0">Disabled</option>
+							<option value="0">关闭</option>
 							<option value="100">100</option>
 							<option value="200">200</option>
 							<option value="500">500</option>
 							<option value="700">700</option>
 							<option value="1000">1000</option>
-							<option value="other">Other</option>
+							<option value="other">其它</option>
 						</select></td>
 					</tr>
-					<tr><td>Disable auto download feature</td><td><input type="checkbox" value="1" name="opt_auto_download_disable" id="opt_auto_download_disable" /></td></tr>
-					<tr><td>Disable auto upload feature</td><td><input type="checkbox" value="1" name="opt_auto_upload_disable" id="opt_auto_upload_disable" /></td></tr>
-					<tr><td>Disable notes feature</td><td><input type="checkbox" value="1" name="opt_notes_disable" id="opt_notes_disable" /></td></tr>
-					<tr><td>Disable *.upload.html creation</td><td><input type="checkbox" value="1" name="opt_upload_html_disable" id="opt_upload_html_disable" /></td></tr>
-					<tr><td>Disable myuploads.txt creation</td><td><input type="checkbox" value="1" name="opt_myuploads_disable" id="opt_myuploads_disable" /></td></tr>
+					<tr><td>禁用自动下载功能</td><td><input type="checkbox" value="1" name="opt_auto_download_disable" id="opt_auto_download_disable" /></td></tr>
+					<tr><td>禁用自动上传功能</td><td><input type="checkbox" value="1" name="opt_auto_upload_disable" id="opt_auto_upload_disable" /></td></tr>
+					<tr><td>禁用笔记功能</td><td><input type="checkbox" value="1" name="opt_notes_disable" id="opt_notes_disable" /></td></tr>
+					<tr><td>禁用 *.upload.html 创建</td><td><input type="checkbox" value="1" name="opt_upload_html_disable" id="opt_upload_html_disable" /></td></tr>
+					<tr><td>禁用 myuploads.txt 创建</td><td><input type="checkbox" value="1" name="opt_myuploads_disable" id="opt_myuploads_disable" /></td></tr>
 				</table>
 			</div>
 		</div>
@@ -324,13 +324,13 @@ if (isset($_POST['setup_save']) && $_POST['setup_save'] == 1) {
 	<tr><td>
 
 		<div class="div_main">
-			<div class="div_title">Authorization mode</div>
+			<div class="div_title">授权模式</div>
 			<div class="div_opt">
-				<input type="checkbox" value="1" name="opt_login" id="opt_login" /> Enable <b>Authorization mode</b>
+				<input type="checkbox" value="1" name="opt_login" id="opt_login" /> 启用<b>授权模式</b>
 				<div style="text-align: left;" id="opt_login_0">
 					<table id="opt_login_table" class="table_opt">
 					<thead>
-						<tr><td><input id="opt_login_add" type="button" value="Add user" /></td><td><b>User</b></td><td><b>Password</b></td></tr>
+						<tr><td><input id="opt_login_add" type="button" value="新增用户" /></td><td><b>用户名</b></td><td><b>密码</b></td></tr>
 					</thead><tbody>
 						<tr><td>&nbsp;</td><td><input type="text" name="users[]" size="14" /></td><td><input type="text" name="passwords[]" size="14" /></td></tr>
 					</tbody></table>
@@ -343,12 +343,12 @@ if (isset($_POST['setup_save']) && $_POST['setup_save'] == 1) {
 	<tr><td>
 
 		<div class="div_main">
-			<div class="div_title">Presentation Options</div>
+			<div class="div_title">显示选项</div>
 			<div class="div_opt" id="opt_presentation_table">
 				<table class="table_opt"><tr>
 					<td style="vertical-align: top;">
 						<table>
-							<tr><td>Template</td>
+							<tr><td>模板</td>
 								<td><select size="1" name="opt_template_used" id="opt_template_used">
 <?php
 $d = dir('templates/');
@@ -360,7 +360,7 @@ $d->close();
 ?>
 								</select></td>
 							</tr>
-							<tr><td>Language</td>
+							<tr><td>语言</td>
 								<td><select size="1" name="opt_default_language" id="opt_default_language">
 <?php
 $d = dir('languages/');
@@ -376,9 +376,9 @@ $d->close();
 					</td>
 					<td style="vertical-align: top;">
 						<table>
-							<tr><td>Show all files, not<br />only downloaded</td><td><input type="checkbox" value="1" name="opt_show_all" id="opt_show_all" /></td></tr>
-							<tr><td>Auto Refresh Server Info</td><td><input type="checkbox" value="1" name="opt_ajax_refresh" id="opt_ajax_refresh" /></td></tr>
-							<tr><td>CPU, Memory &amp; Time Info</td><td><input type="checkbox" value="1" name="opt_server_info" id="opt_server_info" /></td></tr>
+							<tr><td>显示所有文件, <br />不只已下载的文件</td><td><input type="checkbox" value="1" name="opt_show_all" id="opt_show_all" /></td></tr>
+							<tr><td>自动更新服务器信息</td><td><input type="checkbox" value="1" name="opt_ajax_refresh" id="opt_ajax_refresh" /></td></tr>
+							<tr><td>CPU, 内存以及时间信息</td><td><input type="checkbox" value="1" name="opt_server_info" id="opt_server_info" /></td></tr>
 						</table>
 					</td>
 				</tr><tr>
@@ -386,14 +386,14 @@ $d->close();
 				</tr><tr>
 					<td style="vertical-align: top;">
 						<table>
-							<tr><td>Make file list sortable</td><td><input type="checkbox" value="1" name="opt_flist_sort" id="opt_flist_sort" /></td></tr>
-							<tr><td>Fixed file list header<br />(May not work in all browsers)</td><td><input type="checkbox" value="1" name="opt_flist_h_fixed" id="opt_flist_h_fixed" /></td></tr>
+							<tr><td>设为文件列表排序</td><td><input type="checkbox" value="1" name="opt_flist_sort" id="opt_flist_sort" /></td></tr>
+							<tr><td>固定文件列表标题<br />(可能不适合所有浏览器)</td><td><input type="checkbox" value="1" name="opt_flist_h_fixed" id="opt_flist_h_fixed" /></td></tr>
 						</table>
 					</td>
 					<td style="vertical-align: top;">
 						<table>
-							<tr><td>Transload files in a new window</td><td><input type="checkbox" value="1" name="opt_new_window" id="opt_new_window" /></td></tr>
-							<tr id="opt_new_window_0"><td>Use javascript window</td><td><input type="checkbox" value="1" name="opt_new_window_js" id="opt_new_window_js" /></td></tr>
+							<tr><td>在新窗口转存文件</td><td><input type="checkbox" value="1" name="opt_new_window" id="opt_new_window" /></td></tr>
+							<tr id="opt_new_window_0"><td>使用javascript窗口</td><td><input type="checkbox" value="1" name="opt_new_window_js" id="opt_new_window_js" /></td></tr>
 						</table>
 					</td>
 					<td style="vertical-align: top;">&nbsp;</td>
@@ -406,36 +406,36 @@ $d->close();
 	<tr><td>
 
 		<div class="div_main">
-			<div class="div_title">File Actions Restrictions</div>
+			<div class="div_title">文件操作权限</div>
 			<div class="div_opt" id="opt_actions_table">
 				<table class="table_opt">
-					<tr><td>Disable all actions</td><td><input type="checkbox" value="1" name="opt_disable_actions" id="opt_disable_actions" /></td></tr>
-					<tr><td>Disable deleting on all actions(except delete)</td><td><input type="checkbox" value="1" name="opt_disable_deleting" id="opt_disable_deleting" /></td></tr>
+					<tr><td>禁止所有权限</td><td><input type="checkbox" value="1" name="opt_disable_actions" id="opt_disable_actions" /></td></tr>
+					<tr><td>禁止删除所有的权限(不包括删除)</td><td><input type="checkbox" value="1" name="opt_disable_deleting" id="opt_disable_deleting" /></td></tr>
 					<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 					<tr>
 						<td style="vertical-align: top;"><table>
-							<tr><td>Disable delete action</td><td><input type="checkbox" value="1" name="opt_disable_delete" id="opt_disable_delete" /></td></tr>
-							<tr><td>Disable rename action</td><td><input type="checkbox" value="1" name="opt_disable_rename" id="opt_disable_rename" /></td></tr>
-							<tr><td>Disable massive rename</td><td><input type="checkbox" value="1" name="opt_disable_mass_rename" id="opt_disable_mass_rename" /></td></tr>
-							<tr><td>Disable massive email</td><td><input type="checkbox" value="1" name="opt_disable_mass_email" id="opt_disable_mass_email" /></td></tr>
-							<tr><td>Disable email</td><td><input type="checkbox" value="1" name="opt_disable_email" id="opt_disable_email" /></td></tr>
-							<tr><td>Disable FTP</td><td><input type="checkbox" value="1" name="opt_disable_ftp" id="opt_disable_ftp" /></td></tr>
-							<tr><td>Disable upload</td><td><input type="checkbox" value="1" name="opt_disable_upload" id="opt_disable_upload" /></td></tr>
+							<tr><td>禁止删除操作</td><td><input type="checkbox" value="1" name="opt_disable_delete" id="opt_disable_delete" /></td></tr>
+							<tr><td>禁止重命名操作</td><td><input type="checkbox" value="1" name="opt_disable_rename" id="opt_disable_rename" /></td></tr>
+							<tr><td>禁止批量重命名操作</td><td><input type="checkbox" value="1" name="opt_disable_mass_rename" id="opt_disable_mass_rename" /></td></tr>
+							<tr><td>禁止批量发送邮件操作</td><td><input type="checkbox" value="1" name="opt_disable_mass_email" id="opt_disable_mass_email" /></td></tr>
+							<tr><td>禁止发送邮件</td><td><input type="checkbox" value="1" name="opt_disable_email" id="opt_disable_email" /></td></tr>
+							<tr><td>禁止FTP</td><td><input type="checkbox" value="1" name="opt_disable_ftp" id="opt_disable_ftp" /></td></tr>
+							<tr><td>禁止上传</td><td><input type="checkbox" value="1" name="opt_disable_upload" id="opt_disable_upload" /></td></tr>
 						</table></td>
 						<td style="vertical-align: top;"><table>
-							<tr><td>Disable merge</td><td><input type="checkbox" value="1" name="opt_disable_merge" id="opt_disable_merge" /></td></tr>
-							<tr><td>Disable split</td><td><input type="checkbox" value="1" name="opt_disable_split" id="opt_disable_split" /></td></tr>
-							<tr><td>Disable md5 change</td><td><input type="checkbox" value="1" name="opt_disable_md5_change" id="opt_disable_md5_change" /></td></tr>
-							<tr><td>Disable hashing</td><td><input type="checkbox" value="1" name="opt_disable_hashing" id="opt_disable_hashing" /></td></tr>
-							<tr><td>Disable list</td><td><input type="checkbox" value="1" name="opt_disable_list" id="opt_disable_list" /></td></tr>
+							<tr><td>禁止合并</td><td><input type="checkbox" value="1" name="opt_disable_merge" id="opt_disable_merge" /></td></tr>
+							<tr><td>禁止分割</td><td><input type="checkbox" value="1" name="opt_disable_split" id="opt_disable_split" /></td></tr>
+							<tr><td>禁止修改md5</td><td><input type="checkbox" value="1" name="opt_disable_md5_change" id="opt_disable_md5_change" /></td></tr>
+							<tr><td>禁止计算哈希值</td><td><input type="checkbox" value="1" name="opt_disable_hashing" id="opt_disable_hashing" /></td></tr>
+							<tr><td>禁止list</td><td><input type="checkbox" value="1" name="opt_disable_list" id="opt_disable_list" /></td></tr>
 						</table></td>
 						<td style="vertical-align: top;"><table>
-							<tr><td>Disable compression<br />(tar, zip, rar)</td><td><input type="checkbox" value="1" name="opt_disable_archive_compression" id="opt_disable_archive_compression" /></td></tr>
-							<tr><td>Disable tar</td><td><input type="checkbox" value="1" name="opt_disable_tar" id="opt_disable_tar" /></td></tr>
-							<tr><td>Disable zip</td><td><input type="checkbox" value="1" name="opt_disable_zip" id="opt_disable_zip" /></td></tr>
-							<tr><td>Disable unzip</td><td><input type="checkbox" value="1" name="opt_disable_unzip" id="opt_disable_unzip" /></td></tr>
-							<tr><td>Disable rar</td><td><input type="checkbox" value="1" name="opt_disable_rar" id="opt_disable_rar" /></td></tr>
-							<tr><td>Disable unrar</td><td><input type="checkbox" value="1" name="opt_disable_unrar" id="opt_disable_unrar" /></td></tr>
+							<tr><td>禁止压缩<br />(tar, zip, rar)</td><td><input type="checkbox" value="1" name="opt_disable_archive_compression" id="opt_disable_archive_compression" /></td></tr>
+							<tr><td>禁止tar</td><td><input type="checkbox" value="1" name="opt_disable_tar" id="opt_disable_tar" /></td></tr>
+							<tr><td>禁止zip</td><td><input type="checkbox" value="1" name="opt_disable_zip" id="opt_disable_zip" /></td></tr>
+							<tr><td>禁止unzip</td><td><input type="checkbox" value="1" name="opt_disable_unzip" id="opt_disable_unzip" /></td></tr>
+							<tr><td>禁止rar</td><td><input type="checkbox" value="1" name="opt_disable_rar" id="opt_disable_rar" /></td></tr>
+							<tr><td>禁止解压rar</td><td><input type="checkbox" value="1" name="opt_disable_unrar" id="opt_disable_unrar" /></td></tr>
 						</table></td>
 					</tr>
 				</table>
@@ -445,20 +445,20 @@ $d->close();
 </table><table align="center" class="table_cat">
 	<tr><td>
 		<div class="div_main">
-			<div class="div_title" id="div_main_advanced">Advanced Options</div>
+			<div class="div_title" id="div_main_advanced">高级选项</div>
 			<div class="div_opt" id="opt_advanced_table">
-				<div style="text-align: center; padding-bottom: 10px;">(You don't need to change these unless you know what you are doing)</div>
+				<div style="text-align: center; padding-bottom: 10px;">(如果您不知道这些是什么请不要修改)</div>
 				<table class="table_opt">
-					<tr><td>Prefer use of cURL on plugins</td><td><input type="checkbox" value="1" name="opt_use_curl" id="opt_use_curl" /></td></tr>
-					<tr><td>Redirect passive method</td><td><input type="checkbox" value="1" name="opt_redir" id="opt_redir" /></td></tr>
-					<tr><td>No cache</td><td><input type="checkbox" value="1" name="opt_no_cache" id="opt_no_cache" /></td></tr>
-					<tr><td>Disallow downloads from external referers</td><td><input type="checkbox" value="1" name="opt_ref_check" id="opt_ref_check" /></td></tr>
-					<tr><td>Try to list files bigger than 2gb<br />(32 bit o.s.)</td><td><input type="checkbox" value="1" name="opt_2gb_fix" id="opt_2gb_fix" /></td></tr>
-					<tr><td colspan="2" style="text-align: center;">Forbidden file types</td></tr>
+					<tr><td>在插件中更偏向于使用cURL</td><td><input type="checkbox" value="1" name="opt_use_curl" id="opt_use_curl" /></td></tr>
+					<tr><td>重定向使用被动方法</td><td><input type="checkbox" value="1" name="opt_redir" id="opt_redir" /></td></tr>
+					<tr><td>没有缓存</td><td><input type="checkbox" value="1" name="opt_no_cache" id="opt_no_cache" /></td></tr>
+					<tr><td>禁止下载外部来源</td><td><input type="checkbox" value="1" name="opt_ref_check" id="opt_ref_check" /></td></tr>
+					<tr><td>尝试将大于2G文件加入列表<br />(32位系统)</td><td><input type="checkbox" value="1" name="opt_2gb_fix" id="opt_2gb_fix" /></td></tr>
+					<tr><td colspan="2" style="text-align: center;">禁止文件类型</td></tr>
 					<tr><td colspan="2" style="text-align: center;"><input size="50" type="text" id="opt_forbidden_filetypes" name="opt_forbidden_filetypes" /></td></tr>
-					<tr><td>Block download of forbidden file types</td><td><input type="checkbox" value="1" name="opt_forbidden_filetypes_block" id="opt_forbidden_filetypes_block" /></td></tr>
-					<tr id="opt_rename_these_filetypes_to_0"><td>Rename forbidden file types to</td><td><input type="text" size="8" value="" name="opt_rename_these_filetypes_to" id="opt_rename_these_filetypes_to" /></td></tr>
-					<tr><td>Block forbidden file types for file actions</td><td><input type="checkbox" value="1" name="opt_check_these_before_unzipping" id="opt_check_these_before_unzipping" /></td></tr>
+					<tr><td>禁止下载类型</td><td><input type="checkbox" value="1" name="opt_forbidden_filetypes_block" id="opt_forbidden_filetypes_block" /></td></tr>
+					<tr id="opt_rename_these_filetypes_to_0"><td>禁止重命名文件类型</td><td><input type="text" size="8" value="" name="opt_rename_these_filetypes_to" id="opt_rename_these_filetypes_to" /></td></tr>
+					<tr><td>禁止操作的文件类型</td><td><input type="checkbox" value="1" name="opt_check_these_before_unzipping" id="opt_check_these_before_unzipping" /></td></tr>
 					<tr><td>fgc</td><td><input type="text" value="" size="2" name="opt_fgc" id="opt_fgc" /></td></tr>
 				</table>
 			</div>
@@ -472,8 +472,8 @@ $d->close();
 		<td>
 			<div style="text-align: center;">
 				<input type="hidden" value="1" name="setup_save" />
-				<input type="button" value="Save Configuration" id="save" name="save" disabled="disabled" />
-				<input type="button" value="Reset" id="reset" name="reset" disabled="disabled" />
+				<input type="button" value="保存设置" id="save" name="save" disabled="disabled" />
+				<input type="button" value="重新设定" id="reset" name="reset" disabled="disabled" />
 			</div>
 		</td>
 	</tr>
