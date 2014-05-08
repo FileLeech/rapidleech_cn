@@ -5,16 +5,16 @@ function zip() {
 <form name="ziplist" method="post" action="<?php echo $PHP_SELF; ?>"><input type="hidden" name="act" value="zip_go" />
 	<table cellspacing="5">
 		<tr>
-			<td align="center"><strong>Ìí¼ÓÎÄ¼şÖÁZIPÑ¹ËõÎÄ¼ş</strong></td>
+			<td align="center"><strong>æ·»åŠ æ–‡ä»¶è‡³ZIPå‹ç¼©æ–‡ä»¶</strong></td>
 		</tr>
 		<tr>
 			<td align="center">
 				<table>
 					<tr>
-						<td>Ñ¹ËõÎÄ¼şÃû:&nbsp;<input type="text" name="archive" size="25" value=".zip" /></td>
+						<td>å‹ç¼©æ–‡ä»¶å:&nbsp;<input type="text" name="archive" size="25" value=".zip" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox" name="no_compression"<?php echo ($options['disable_archive_compression'] ? ' disabled="disabled" checked="checked"' : ''); ?> />&nbsp;½ö´æ´¢</td>
+						<td><input type="checkbox" name="no_compression"<?php echo ($options['disable_archive_compression'] ? ' disabled="disabled" checked="checked"' : ''); ?> />&nbsp;ä»…å­˜å‚¨</td>
 					</tr>
 				</table>
 				<table>
@@ -68,7 +68,7 @@ function zip_go() {
 		echo "Error: " . $archive->errorInfo ( true ) . "<br /><br />";
 		return;
 	} else {
-		echo "Ñ¹ËõÎÄ¼ş<b>" . $_POST ["archive"] . "</b>´´½¨³É¹¦£¡<br /><br />";
+		echo "å‹ç¼©æ–‡ä»¶<b>" . $_POST ["archive"] . "</b>åˆ›å»ºæˆåŠŸï¼<br /><br />";
 	}
 	if (is_file($_POST['archive'])) {
 		$time = filemtime($_POST['archive']); while (isset($list[$time])) { $time++; }

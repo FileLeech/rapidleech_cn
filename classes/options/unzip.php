@@ -68,7 +68,7 @@ function unzip_go() {
 				}
 			}
 			if ($file_inside_zip_exists) {
-				echo 'ÔÚ<b>'.htmlentities(basename($file["name"])).'</b>ÖĞµÄÒ»Ğ©ÎÄ¼şÔÚÏÂÔØÄ¿Â¼ÖĞÒÑ´æÔÚ';
+				echo 'åœ¨<b>'.htmlentities(basename($file["name"])).'</b>ä¸­çš„ä¸€äº›æ–‡ä»¶åœ¨ä¸‹è½½ç›®å½•ä¸­å·²å­˜åœ¨';
 				echo "<br /><br />";
 			}
 			elseif ($forbidden_inside_zip) {
@@ -79,7 +79,7 @@ function unzip_go() {
 				$zip->unzipAll ( $options['download_dir'] );
 				if ($zip->getList () != false) {
 					$any_file_unzippped = true;
-					echo '<b>'.htmlentities(basename($file["name"])).'</b>&nbsp;½âÑ¹Ëõ³É¹¦<br /><br />';
+					echo '<b>'.htmlentities(basename($file["name"])).'</b>&nbsp;è§£å‹ç¼©æˆåŠŸ<br /><br />';
 					foreach ($allf as $k => $properties) {
 						$efile = realpath($options['download_dir']).'/'.basename($properties['file_name']); 
 						if (is_file($efile)) {
@@ -90,7 +90,7 @@ function unzip_go() {
 					if (!updateListInFile($list)) { echo lang(146)."<br /><br />"; }
 				}
 				else {
-					echo "ÎÄ¼ş<b>".$file["name"]."</b>Î´ÕÒµ½£¡<br /><br />";
+					echo "æ–‡ä»¶<b>".$file["name"]."</b>æœªæ‰¾åˆ°ï¼<br /><br />";
 				}
 			}
 		}
