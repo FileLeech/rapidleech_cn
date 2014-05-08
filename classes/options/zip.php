@@ -5,16 +5,16 @@ function zip() {
 <form name="ziplist" method="post" action="<?php echo $PHP_SELF; ?>"><input type="hidden" name="act" value="zip_go" />
 	<table cellspacing="5">
 		<tr>
-			<td align="center"><strong>Adding files to a ZIP archive</strong></td>
+			<td align="center"><strong>添加文件至ZIP压缩文件</strong></td>
 		</tr>
 		<tr>
 			<td align="center">
 				<table>
 					<tr>
-						<td>Archive Name:&nbsp;<input type="text" name="archive" size="25" value=".zip" /></td>
+						<td>压缩文件名:&nbsp;<input type="text" name="archive" size="25" value=".zip" /></td>
 					</tr>
 					<tr>
-						<td><input type="checkbox" name="no_compression"<?php echo ($options['disable_archive_compression'] ? ' disabled="disabled" checked="checked"' : ''); ?> />&nbsp;Do not use compression</td>
+						<td><input type="checkbox" name="no_compression"<?php echo ($options['disable_archive_compression'] ? ' disabled="disabled" checked="checked"' : ''); ?> />&nbsp;仅存储</td>
 					</tr>
 				</table>
 				<table>
@@ -68,7 +68,7 @@ function zip_go() {
 		echo "Error: " . $archive->errorInfo ( true ) . "<br /><br />";
 		return;
 	} else {
-		echo "Archive <b>" . $_POST ["archive"] . "</b> successfully created!<br /><br />";
+		echo "压缩文件<b>" . $_POST ["archive"] . "</b>创建成功！<br /><br />";
 	}
 	if (is_file($_POST['archive'])) {
 		$time = filemtime($_POST['archive']); while (isset($list[$time])) { $time++; }

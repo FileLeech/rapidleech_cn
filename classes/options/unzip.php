@@ -68,7 +68,7 @@ function unzip_go() {
 				}
 			}
 			if ($file_inside_zip_exists) {
-				echo 'Some file(s) inside <b>'.htmlentities(basename($file["name"])).'</b> already exist on download directory';
+				echo '在<b>'.htmlentities(basename($file["name"])).'</b>中的一些文件在下载目录中已存在';
 				echo "<br /><br />";
 			}
 			elseif ($forbidden_inside_zip) {
@@ -79,7 +79,7 @@ function unzip_go() {
 				$zip->unzipAll ( $options['download_dir'] );
 				if ($zip->getList () != false) {
 					$any_file_unzippped = true;
-					echo '<b>'.htmlentities(basename($file["name"])).'</b>&nbsp;unzipped successfully<br /><br />';
+					echo '<b>'.htmlentities(basename($file["name"])).'</b>&nbsp;解压缩成功<br /><br />';
 					foreach ($allf as $k => $properties) {
 						$efile = realpath($options['download_dir']).'/'.basename($properties['file_name']); 
 						if (is_file($efile)) {
@@ -90,7 +90,7 @@ function unzip_go() {
 					if (!updateListInFile($list)) { echo lang(146)."<br /><br />"; }
 				}
 				else {
-					echo "File <b>".$file["name"]."</b> not found!<br /><br />";
+					echo "文件<b>".$file["name"]."</b>未找到！<br /><br />";
 				}
 			}
 		}

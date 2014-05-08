@@ -38,17 +38,16 @@ function rl_split() {
 							<?php echo $options['disable_deleting'] ? 'disabled="disabled"' : 'checked="checked"'; ?> />&nbsp;<?php echo lang(203); ?></td>
 					</tr>
 					<tr>
-						<td align="left">CRC32 generation mode:<br />
+						<td align="left">CRC32生成模式:<br />
 <?php
 		if (function_exists('hash_file')) {
-?><input type="radio" name="crc_mode[<?php echo $i; ?>]" value="hash_file" checked="checked" />&nbsp;Use hash_file (Recommended)<br />
+?><input type="radio" name="crc_mode[<?php echo $i; ?>]" value="hash_file" checked="checked" />&nbsp;<?php echo lang(172); ?><br />
 <?php
 		}
 ?>
 						<input type="radio"
-							name="crc_mode[<?php echo $i; ?>]" value="file_read" />&nbsp;Read file to memory<br />
-						<input type="radio" name="crc_mode[<?php echo $i; ?>]" value="fake" <?php if (!function_exists('hash_file')) echo ' checked="checked"'; ?> />&nbsp;Fake
-						crc</td>
+							name="crc_mode[<?php echo $i; ?>]" value="file_read" />&nbsp;<?php echo lang(173); ?><br />
+						<input type="radio" name="crc_mode[<?php echo $i; ?>]" value="fake" <?php if (!function_exists('hash_file')) echo ' checked="checked"'; ?> />&nbsp;<?php echo lang(174); ?></td>
 					</tr>
 					<tr>
 						<td></td>
