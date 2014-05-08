@@ -38,7 +38,7 @@ function rl_split() {
 							<?php echo $options['disable_deleting'] ? 'disabled="disabled"' : 'checked="checked"'; ?> />&nbsp;<?php echo lang(203); ?></td>
 					</tr>
 					<tr>
-						<td align="left">CRC32生成模式:<br />
+						<td align="left">CRC32鐢熸垚妯″紡:<br />
 <?php
 		if (function_exists('hash_file')) {
 ?><input type="radio" name="crc_mode[<?php echo $i; ?>]" value="hash_file" checked="checked" />&nbsp;<?php echo lang(172); ?><br />
