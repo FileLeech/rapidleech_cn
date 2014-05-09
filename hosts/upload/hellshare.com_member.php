@@ -23,7 +23,7 @@ else{
 <tr><td nowrap>&nbsp;Login<td>&nbsp;<input name=bin_login value='' style="width:160px;">&nbsp;</tr>
 <tr><td nowrap>&nbsp;Password<td>&nbsp;<input name=bin_pass value='' style="width:160px;">&nbsp;</tr>
 <tr><td colspan=2 align=center>Let it empty for free user</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload'></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传'></tr>
 </table>
 </form>
 <?php
@@ -52,7 +52,7 @@ if ($continue_up)
 			}	
 ?>
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div> 
+<div id=info width=100% align=center>验证上传用户名</div> 
 <?php
 			$Url=parse_url('http://www.hellshare.com/');
 			$page = geturl($Url["host"], $Url["port"] ? $Url["port"] : 80, $Url["path"] . ($Url["query"] ? "?" . $Url["query"] : ""), "http://www.hellshare.com/", $cookies, 0, 0, $_GET["proxy"], $pauth);

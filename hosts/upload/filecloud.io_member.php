@@ -44,8 +44,8 @@ else {
 	if (!$cantlogin) echo "<tr id='tr_user' style='display:none;' align='center'><td>Username</td><td><input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
 	<tr id='tr_pass' style='display:none;' align='center'><td>Password</td><td><input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>
 	<tr id='tr_note' style='display:none;'><td colspan='2' align='center'>Remember to copy and save your Apikey after upload.<br /><small>Login needs https support.</small></td></tr>\n";
-	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>
-	<tr><td colspan='2' align='center'><small>*You can set it as default in <b>".basename(__FILE__)."</b></small></td></tr>\n</table>\n</form>\n";
+	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>
+	<tr><td colspan='2' align='center'><small>*您可以在 <b>".basename(__FILE__)."</b> 中设置默认帐号</small></td></tr>\n</table>\n</form>\n";
 	echo "<script type='text/javascript'>/* <![CDATA[ */
 	self.resizeTo(700,400);";
 	if (!$cantlogin) echo "\n\tfunction showlogin() {
@@ -99,8 +99,8 @@ if ($continue_up) {
 		is_present($page, 'you are not authorized to view this page', 'Invalid apikey.');
 	}
 
-	// Retrive upload ID
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<script type='text/javascript'>document.getElementById('apikey').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retrive upload ID</div>\n";
+	// 验证上传用户名
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<script type='text/javascript'>document.getElementById('apikey').style.display='none';</script>\n<div id='info' width='100%' align='center'>验证上传用户名</div>\n";
 
 	$page = geturl('api.filecloud.io', 80, '/api-fetch_upload_url.api?response=text', '', 0, array('akey' => $_REQUEST['up_apikey']));is_page($page);
 	is_present($page, 'status: error', 'Upload Failed: "'.htmlentities(cut_str($page, 'message: ', "\n")).'"');

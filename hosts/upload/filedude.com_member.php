@@ -20,16 +20,16 @@ else {
 	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>
 	<form method='POST'>
 	<input type='hidden' name='action' value='FORM' />
-	<tr><td style='white-space:nowrap;'>&nbsp;Email*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
-	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>
+	<tr><td style='white-space:nowrap;'>&nbsp;邮箱*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>
 	<tr><td colspan='2' align='center'><small>*You can set it as default in <b>{$page_upload["filedude.com_member"]}</b></small></td></tr>\n</table>\n</form>\n";
 }
 
 if ($continue_up) {
 	$not_done = $login = false;
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to FileDude</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到FileDude</div>\n";
 
 	$cookie = 0;
 	if (!empty($_REQUEST['up_login']) && !empty($_REQUEST['up_pass'])) {
@@ -48,8 +48,8 @@ if ($continue_up) {
 		echo "<b><center>Login not found or empty, using non member upload.</center></b>\n";
 	}
 
-	// Retrive upload ID
-	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retrive upload ID</div>\n";
+	// 验证上传用户名
+	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>验证上传用户名</div>\n";
 
 	$page = geturl("www.filedude.com", 80, "/", 0, $cookie);is_page($page);
 

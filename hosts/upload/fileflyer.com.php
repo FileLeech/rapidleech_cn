@@ -9,7 +9,7 @@ else{
 <form method=post>
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;Recipient Email Address<td>&nbsp;<input type=text name=remail value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 
@@ -22,7 +22,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php 
 			$page = geturl("www.fileflyer.com", 80, "/", "", 0, 0, 0, "");
 			is_page($page);

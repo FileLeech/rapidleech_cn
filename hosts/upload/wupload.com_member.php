@@ -24,12 +24,12 @@ if ($wupload_login && $wupload_pass){
     $_REQUEST['my_login'] = $wupload_login;
     $_REQUEST['my_pass'] = $wupload_pass;
     $_REQUEST['action'] = "FORM";
-    echo "<b><center>Use Default login/pass.</center></b>\n";
+    echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 } else if (isset($premium_acc) && isset($premium_acc["wupload_com"]['user']) && $premium_acc["wupload_com"]['user'] != '' && $premium_acc["wupload_com"]['pass'] != '') {
     $_REQUEST['my_login'] = $premium_acc["wupload_com"]['user'];
     $_REQUEST['my_pass'] = $premium_acc["wupload_com"]['pass'];
     $_REQUEST['action'] = "FORM";
-    echo "<b><center>Use Default login/pass.</center></b>\n";
+    echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 
 class Wupload {
@@ -142,10 +142,10 @@ else{
 <table border=0 style="width:270px;" cellspacing=0 align=center>
 <form method=post>
 <input type=hidden name=action value='FORM' />
-<tr><td nowrap>&nbsp;Email*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
-<tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo __FILE__; ?></b></small></tr>
+<tr><td nowrap>&nbsp;邮箱*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
+<tr><td colspan=2 align=center><small>*您可以在 <b><?php echo __FILE__; ?></b> 中设置默认帐号</small></tr>
 </table>
 </form>
 
@@ -160,7 +160,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=info width=100% align=center>Upload Process</div>
+<div id=info width=100% align=center>上传进程</div>
 <script>document.getElementById('info').style.display='none';</script>
 <?php
     $wupload = new Wupload($_REQUEST['my_login'], $_REQUEST['my_pass']);

@@ -23,11 +23,11 @@ else{
 <form method='POST'>
 <input type='hidden' name='action' value='FORM' />
 <tr><td colspan='2' align='center'>Upload options</td></tr>
-<tr><td style="white-space:nowrap;" align='center'><br />Content type:&nbsp;&nbsp;<input type='radio' name='up_rB' value='SFW' checked='checked'>&nbsp;Family safe&nbsp;&nbsp;<input type='radio' name='up_rB' value='NSFW'>&nbsp;<span style="color:red;"><b>Adult content</b></span></td></tr>
+<tr><td style="white-space:nowrap;" align='center'><br />连接类型：&nbsp;&nbsp;<input type='radio' name='up_rB' value='SFW' checked='checked'>&nbsp;Family safe&nbsp;&nbsp;<input type='radio' name='up_rB' value='NSFW'>&nbsp;<span style="color:red;"><b>Adult content</b></span></td></tr>
 <tr><td colspan='2' align='center'><br />Thumbnail size:&nbsp;&nbsp;<select name="up_thumbsize" style="height:20px;width:60px">
 <?php foreach($tsizes as $v) echo "<option value='$v'>$v px</option>"; ?>
 </select></td></tr>
-<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>
+<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>
 <tr><td colspan='2' align='center'><small>*You can set it as default in <b><?php echo $page_upload["imagehaven.net"]; ?></b></small></td></tr>
 </table>
 </form>
@@ -38,7 +38,7 @@ if ($continue_up) {
 	$not_done=false;
 ?><table style="width:600px;margin:auto;">
 <tr><td align="center">
-<div id='info' style="width:100%;text-align:center;">Retrive upload ID</div>
+<div id='info' style="width:100%;text-align:center;">验证上传用户名</div>
 <?php 
 	$page = geturl("imagehaven.net", 80, "/");is_page($page);
 	$cookie = GetCookies($page);

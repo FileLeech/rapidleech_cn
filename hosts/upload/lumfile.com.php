@@ -10,7 +10,7 @@ if ($upload_acc['lumfile_com']['user'] && $upload_acc['lumfile_com']['pass']) {
 	$_REQUEST['login'] = $upload_acc['lumfile_com']['user'];
 	$_REQUEST['password'] = $upload_acc['lumfile_com']['pass'];
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
 	$continue_up=true;
@@ -19,8 +19,8 @@ else{
 <table border="0" style="width:270px;margin:auto;" cellspacing="0">
 <form method="POST">
 <input type="hidden" name="action" value="FORM" />
-<tr><td style="white-space:nowrap;">&nbsp;Username*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td style="white-space:nowrap;">&nbsp;Password*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;用户名*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;密码*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
 <tr><td colspan="2" align="center"><input type="submit" value="Upload" /></tr>
 <tr><td colspan="2" align="center"><small>*You can set it as default in <b><?php echo basename(__FILE__); ?></b></small></tr>
 </form>
@@ -35,7 +35,7 @@ if ($continue_up)
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="login" style="width:100%;text-align:center;">Login to lumfile.com</div>
+<div id="login" style="width:100%;text-align:center;">登录到lumfile.com</div>
 <?php
 	$cookie = 'lang=english';
 	if (!empty($_REQUEST['login']) && !empty($_REQUEST['password'])) {
@@ -57,7 +57,7 @@ if ($continue_up)
 	}
 ?>
 <script type="text/javascript">document.getElementById('login').style.display='none';</script>
-<div id="info" style="width:100%;text-align:center;">Retrive upload ID</div>
+<div id="info" style="width:100%;text-align:center;">验证上传用户名</div>
 <?php
 	$page = geturl("lumfile.com", 80, "/", 'http://lumfile.com/', $cookie, 0, 0, $_GET["proxy"], $pauth);is_page($page);
 	if (!preg_match('@action="(https?://[^/|"]+/[^\?|"]+)\?@i',$page, $up)) html_error('Error: Cannot find upload server.', 0);

@@ -32,19 +32,19 @@ else{
 <table border="0" style="width:270px;margin:auto;" cellspacing="0">
 <form method="POST">
 <input type="hidden" name="action" value="FORM" />
-<tr><td style="white-space:nowrap;">&nbsp;Username*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td style="white-space:nowrap;">&nbsp;Password*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td colspan='2' align='center'><br />Upload options*<br /><br /></td></tr>
-<tr><td style='white-space:nowrap;'>Title:</td><td>&nbsp;<input type='text' name='up_title' value="<?php echo $fname ?>" style='width:160px;' /></td></tr>
-<tr><td style='white-space:nowrap;'>Tags:</td><td>&nbsp;<input type='text' name='up_tags' value="<?php echo $fname; ?>" style='width:160px;' /></td></tr>
-<tr><td style='white-space:nowrap;'>Description:</td><td>&nbsp;<input type='text' name='up_description' value='Uploaded with Rapidleech' style='width:160px;' /></td></tr>
-<tr><td style='white-space:nowrap;'>Category:</td><td>&nbsp;<select name='up_category' style='width:160px;height:20px;'>
+<tr><td style="white-space:nowrap;">&nbsp;用户名*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;密码*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td colspan='2' align='center'><br />上传选项<br /><br /></td></tr>
+<tr><td style='white-space:nowrap;'>标题：</td><td>&nbsp;<input type='text' name='up_title' value="<?php echo $fname ?>" style='width:160px;' /></td></tr>
+<tr><td style='white-space:nowrap;'>标签：</td><td>&nbsp;<input type='text' name='up_tags' value="<?php echo $fname; ?>" style='width:160px;' /></td></tr>
+<tr><td style='white-space:nowrap;'>描述：</td><td>&nbsp;<input type='text' name='up_description' value='Uploaded with Rapidleech' style='width:160px;' /></td></tr>
+<tr><td style='white-space:nowrap;'>分类：</td><td>&nbsp;<select name='up_category' style='width:160px;height:20px;'>
 <?php foreach($categories as $v => $n) echo "<option value='$v'>$n</option>\n"; ?>
 </select></td></tr>
-<tr><td colspan='2' align='center'>Content type:<input type='radio' name='up_adult' value='no' checked='checked'>&nbsp;Safe&nbsp;&nbsp;<input type='radio' name='up_adult' value='yes'>&nbsp;<b style="color:red;">Unsafe</b></td></tr>
-<tr><td style='white-space:nowrap;'><input type='checkbox' name='up_private' value='yes' />&nbsp; Set as private</td><td style='white-space:nowrap;' align='right'><input type='checkbox' name='up_comments' value='yes' checked='checked' />&nbsp; Allow Comments</td></tr>
+<tr><td colspan='2' align='center'>连接类型：<input type='radio' name='up_adult' value='no' checked='checked'>&nbsp;安全&nbsp;&nbsp;<input type='radio' name='up_adult' value='yes'>&nbsp;<b style="color:red;">不安全</b></td></tr>
+<tr><td style='white-space:nowrap;'><input type='checkbox' name='up_private' value='yes' />&nbsp; Set as private</td><td style='white-space:nowrap;' align='right'><input type='checkbox' name='up_comments' value='yes' checked='checked' />&nbsp; 开放评论</td></tr>
 <tr><td colspan="2" align="center"><input type="submit" value="Upload" /></td></tr>
-<tr><td colspan="2" align="center"><small>*You can set it as default in <b><?php echo $page_upload["wrzuta.pl"]; ?></b></small></td></tr>
+<tr><td colspan="2" align="center"><small>*您可在<b><?php echo $page_upload["wrzuta.pl"]; ?>中设置默认帐号</b></small></td></tr>
 </form>
 </table>
 <script type='text/javascript'>self.resizeTo(700,500);</script>
@@ -58,7 +58,7 @@ if ($continue_up)
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="info" style="width:100%;text-align:center;">Login to wrzuta.pl</div>
+<div id="info" style="width:100%;text-align:center;">登录到wrzuta.pl</div>
 <?php
 	$page = geturl("www.wrzuta.pl", 80, "/ajax/csrf/pobierz/", 'http://www.wrzuta.pl/', 0, 0, 0, $_GET["proxy"], $pauth);is_page($page);
 	$cookie = GetCookiesArr($page);

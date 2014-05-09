@@ -2,7 +2,7 @@
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 			$ref='http://ugotfile.com/';
 			$Url=parse_url($ref);
@@ -10,7 +10,7 @@
 			is_page($page);
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 			$upload_srv = cut_str($page, 'uploadServer = "', '"');
 			$upload_sid = cut_str($page, 'upload_url: uploadServer+"/upload/web?PHPSESSID=', '"');

@@ -34,7 +34,7 @@ if ($continue_up)
 <table width=600 align=center> 
 </td></tr> 
 <tr><td align=center> 
-<div id='login' width='100%' align='center'>Login to Turboupload</div>
+<div id='login' width='100%' align='center'>登录到Turboupload</div>
 <?php
 		if (!empty($_REQUEST['turboupload_login']) && !empty($_REQUEST['turboupload_pass'])) {
 		$post['login'] = $_REQUEST['turboupload_login'];
@@ -52,7 +52,7 @@ if ($continue_up)
 	}
 ?>
 					<script type='text/javascript'>document.getElementById('login').style.display='none';</script>
-                    <div id='info' width='100%' align='center'>Retrive upload ID</div>
+                    <div id='info' width='100%' align='center'>验证上传用户名</div>
 <?php
 			$page = geturl("turboupload.com", 80, "/", 0, $cookie, 0);
 			if(!preg_match('#enctype="multipart/form-data"[\r|\n|\s]+action="([^"]+)"#', $page, $act)){

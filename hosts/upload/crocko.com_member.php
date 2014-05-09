@@ -21,9 +21,9 @@ $crocko_pass = ""; //  Set your password
     <table border=0 style="width:270px;" cellspacing=0 align=center>
         <form method="post">
         <input type='hidden' name='action' value='FORM' />
-            <tr><td nowrap>&nbsp;User*<td>&nbsp;<input type='text' name='cr_user' value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type='password' name='cr_pass' value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td colspan=2 align=center><input type='submit' value='Upload' /></tr>
+            <tr><td nowrap>&nbsp;用户名*<td>&nbsp;<input type='text' name='cr_user' value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type='password' name='cr_pass' value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td colspan=2 align=center><input type='submit' value='上传' /></tr>
             <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["crocko.com_member"]; ?></b></small></tr>
         </form>
     </table>
@@ -36,7 +36,7 @@ $crocko_pass = ""; //  Set your password
     </td></tr>
     <tr><td align=center>
     		<script>document.getElementById('info').style.display='none';</script>
-            <div id='info' width='100%' align='center'>Login to crocko.com</div>
+            <div id='info' width='100%' align='center'>登录到crocko.com</div>
         <?php
         if (!empty($_REQUEST['cr_user']) && !empty($_REQUEST['cr_pass'])){
         $Url = parse_url("https://www.crocko.com/accounts/login/");
@@ -58,7 +58,7 @@ $crocko_pass = ""; //  Set your password
 	}else{
         ?>
         		<script>document.getElementById('info').style.display='none';</script>
-				<div id='info' width='100%' align='center'>Retrive upload ID</div> 
+				<div id='info' width='100%' align='center'>验证上传用户名</div> 
         <?php 
 	$uplink = 'http://upload.crocko.com/accounts/upload_backend/perform/ajax';
 	$url = parse_url($uplink);

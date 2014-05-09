@@ -10,7 +10,7 @@ $videozer_pass = '';
 					$_REQUEST['videozer_login'] = $videozer_login;
 					$_REQUEST['videozer_pass'] = $videozer_pass;
 					$_REQUEST['action'] = "FORM";
-					echo "<b><center>Use Default login/pass.</center></b>\n";
+					echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 				}
 				if ($_REQUEST['action'] == "FORM")
 					$continue_up=true;
@@ -21,9 +21,9 @@ $videozer_pass = '';
 <table border=0 style="width:270px;" cellspacing=0 align=center>
 <form method=post>
 <input type=hidden name=action value='FORM' />
-<tr><td nowrap>&nbsp;User*<td>&nbsp;<input type=text name=videozer_login style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=videozer_pass style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td nowrap>&nbsp;用户名*<td>&nbsp;<input type=text name=videozer_login style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=videozer_pass style="width:160px;" />&nbsp;</tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 
@@ -38,7 +38,7 @@ if ($continue_up)
 </td></tr>
 <tr><td align=center>
 						<script>document.getElementById('info').style.display='none';</script>
-						<div id=login width=100% align=center>Login to Videobb.com</div>
+						<div id=login width=100% align=center>登录到Videobb.com</div>
 <?php
 				$ext = extensao($lname);
 				if (!empty($_REQUEST['videozer_login']) && !empty($_REQUEST['videozer_pass'])) {
@@ -70,7 +70,7 @@ if ($continue_up)
 				}
 ?>
 					<script>document.getElementById('login').style.display='none';</script>
-					<div id=info width=100% align=center>Retrive upload ID</div>
+					<div id=info width=100% align=center>验证上传用户名</div>
 <?php
             $page = geturl("videozer.com", 80, "/ajax/upload_track.php?cat_sel=1&f=$lname","http://videozer.com/upload.php\r\nX-Requested-With: XMLHttpRequest",$cookie, 0, 0);
 		    is_page($page);

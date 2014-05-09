@@ -8,7 +8,7 @@ else{
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;Dealer ID<td>&nbsp;<input type=updealer_id name=updealer_id value='' style="width:160px;" />&nbsp;</tr>
 </table>
-<center><input type=submit value='Upload' /></center></tr>
+<center><input type=submit value='上传' /></center></tr>
 </form>
 <?php
 }
@@ -20,7 +20,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <tr><td align=center>
 <?php
 	$ref = 'http://www.hellshare.com/';

@@ -2,7 +2,7 @@
 </td></tr>
 <tr><td align=center>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 		
 	$page = geturl("extabit.com", 80, "/", $ref, $cookies, 0, 0, $_GET["proxy"], $pauth);

@@ -17,8 +17,8 @@ if (!($_REQUEST['action'] == 'COMMENCEUPLOAD') && !isset($_REQUEST['auul']))
 		<table border='0' style="width:350px;" cellspacing='0' align='center'>
 		<form action='' method='post'>
 			<input type='hidden' name='action' value='COMMENCEUPLOAD' />
-			<tr><td nowrap>&nbsp;Username*</td><td>&nbsp;<input type='text' name='my_login' value='' style="width:160px;" />&nbsp;</td></tr>
-			<tr><td nowrap>&nbsp;Password*</td><td>&nbsp;<input type='password' name='my_pass' value='' style="width:160px;" />&nbsp;</td></tr>
+			<tr><td nowrap>&nbsp;用户名*</td><td>&nbsp;<input type='text' name='my_login' value='' style="width:160px;" />&nbsp;</td></tr>
+			<tr><td nowrap>&nbsp;密码*</td><td>&nbsp;<input type='password' name='my_pass' value='' style="width:160px;" />&nbsp;</td></tr>
 			<tr><td nowrap>&nbsp;Upload Carrier</td><td>&nbsp;
 			<select style="width:160px;" name='carrier'>
 					<option value='l3'/>Level 3 (default)</option>
@@ -27,7 +27,7 @@ if (!($_REQUEST['action'] == 'COMMENCEUPLOAD') && !isset($_REQUEST['auul']))
 					<option value='cg'/>Cogent</option>
 			</select>
 			</td></tr>
-			<tr><td colspan='2' align='center'><input type='submit' value='Upload' onclick='$(this).fadeOut();'></td></tr>
+			<tr><td colspan='2' align='center'><input type='submit' value='上传' onclick='$(this).fadeOut();'></td></tr>
 			<tr><td align='center' colspan='2'><small>Submit the form without logins to use default values stored in rapidshare.com_2GB.php</small></td></tr>
 		</form>
 		</table>

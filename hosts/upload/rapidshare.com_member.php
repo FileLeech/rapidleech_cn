@@ -21,7 +21,7 @@ else {
 <form method="POST">
 <input type="hidden" name="action" value="FORM" />
 <tr><td style="white-space:nowrap;">&nbsp;Login*<td>&nbsp;<input type="text" name="up_login" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td style="white-space:nowrap;">&nbsp;Password*<td>&nbsp;<input type="password" name="up_pass" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;密码*<td>&nbsp;<input type="password" name="up_pass" value="" style="width:160px;" />&nbsp;</tr>
 <tr><td colspan="2" align="center"><input type="submit" value="Upload" /></tr>
 <tr><td colspan="2" align="center"><small>*You can set it as default in <b><?php echo $page_upload["rapidshare.com_member"]; ?></b></small></tr>
 </form>
@@ -37,7 +37,7 @@ if ($continue_up)
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="login" style="width:100%;text-align:center;">Login to Rapidshare</div>
+<div id="login" style="width:100%;text-align:center;">登录到Rapidshare</div>
 <?php
 	if (!empty($_REQUEST['up_login']) && !empty($_REQUEST['up_pass'])) {
 		$post['sub'] = 'getaccountdetails';

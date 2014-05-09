@@ -10,7 +10,7 @@ $filesflash_pass = ""; //  Set your password
 				$_REQUEST['ff_email'] = $filesflash_email;
 				$_REQUEST['ff_pass'] = $filesflash_pass;
 				$_REQUEST['action'] = "FORM";
-				echo "<b><center>Automatic Login to Filesflash.com</center></b>\n";
+				echo "<b><center>Automatic 登录到Filesflash.com</center></b>\n";
 			}
 			if ($_REQUEST['action'] == "FORM"){
 				$continue_up = true;
@@ -21,9 +21,9 @@ $filesflash_pass = ""; //  Set your password
     <table border=0 style="width:270px;" cellspacing=0 align=center>
         <form method="post">
         <input type='hidden' name='action' value='FORM' />
-            <tr><td nowrap>&nbsp;User*<td>&nbsp;<input type='text' name='ff_email' value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type='password' name='ff_pass' value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td colspan=2 align=center><input type='submit' value='Upload' /></tr>
+            <tr><td nowrap>&nbsp;用户名*<td>&nbsp;<input type='text' name='ff_email' value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type='password' name='ff_pass' value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td colspan=2 align=center><input type='submit' value='上传' /></tr>
             <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["filesflash.com_member"]; ?></b></small></tr>
         </form>
     </table>
@@ -36,7 +36,7 @@ $filesflash_pass = ""; //  Set your password
     </td></tr>
     <tr><td align=center>
     		<script>document.getElementById('info').style.display='none';</script>
-            <div id='info' width='100%' align='center'>Login to Filesflash.com</div>
+            <div id='info' width='100%' align='center'>登录到Filesflash.com</div>
 <?php
         if (!empty($_REQUEST['ff_email']) && !empty($_REQUEST['ff_pass'])){
         $post["email"] = trim($_REQUEST['ff_email']);
@@ -61,7 +61,7 @@ $filesflash_pass = ""; //  Set your password
 		}
 ?>
         		<script>document.getElementById('info').style.display='none';</script>
-				<div id='info' width='100%' align='center'>Retrive upload ID</div> 
+				<div id='info' width='100%' align='center'>验证上传用户名</div> 
 <?php 
 
 		$page = geturl("filesflash.com", 80, "/index.php", 0, $cookie);

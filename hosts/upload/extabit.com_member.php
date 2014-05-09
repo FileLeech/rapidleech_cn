@@ -20,9 +20,9 @@ else{
 <form method=post>
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;email*<td>&nbsp;<input type=text name=email value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=password value='' style="width:160px;"/>&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=password value='' style="width:160px;"/>&nbsp;</tr>
 <tr><td nowrap>&nbsp;Private<td>&nbsp;<input type="checkbox" name="private" value="1"/></tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 <?php
@@ -35,7 +35,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to extabit</div>
+<div id=login width=100% align=center>登录到extabit</div>
 <?php
 			$ref = "http://extabit.com/";
 			
@@ -61,7 +61,7 @@ if ($continue_up)
 			is_notpresent($page, 'logout.jsp', 'Error logging in - are your logins correct? Second');
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 		
 	$page = geturl("extabit.com", 80, "/", $ref, $cookies, 0, 0, $_GET["proxy"], $pauth);

@@ -20,7 +20,7 @@ else{
 <form method="POST">
 <input type="hidden" name="action" value="FORM" />
 <tr><td style="white-space:nowrap;">&nbsp;Login*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td style="white-space:nowrap;">&nbsp;Password*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;密码*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
 <tr><td colspan="2" align="center"><input type="submit" value="Upload" /></tr>
 <tr><td colspan="2" align="center"><small>*You can set it as default in <b><?php echo $page_upload["filedino.com_member"]; ?></b></small></tr>
 </form>
@@ -35,7 +35,7 @@ if ($continue_up)
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="login" style="width:100%;text-align:center;">Login to filedino.com</div>
+<div id="login" style="width:100%;text-align:center;">登录到filedino.com</div>
 <?php
 	if (empty($_REQUEST['login']) || empty($_REQUEST['password'])) html_error("Login failed: User/Password empty.", 0);
 	$cookie = 'lang=english';
@@ -50,7 +50,7 @@ if ($continue_up)
 	$cookie = "$cookie; " . GetCookies($page);
 ?>
 <script type="text/javascript">document.getElementById('login').style.display='none';</script>
-<div id="info" style="width:100%;text-align:center;">Retrive upload ID</div>
+<div id="info" style="width:100%;text-align:center;">验证上传用户名</div>
 <?php
 	$page = geturl("www.filedino.com", 80, "/", 'http://www.filedino.com/', $cookie, 0, 0, $_GET["proxy"], $pauth);is_page($page);
 	if (!preg_match('@action="(http://[^"]+/upload.cgi)@i',$page, $up)) html_error('Error: Cannot find upload server.', 0);

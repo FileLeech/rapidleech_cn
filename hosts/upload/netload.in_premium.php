@@ -32,7 +32,7 @@ if ($_REQUEST ['action'] == "FORM")
 		<td nowrap colspan=0>&nbsp;Description		
 		<td colspan=3>&nbsp;<input name=message value='<?php print $mega_desc; ?>' style="width: 428px;" />&nbsp;			
 	</tr>
-	<tr><td colspan=4 align=center><input type=submit value='Upload' /></tr>	
+	<tr><td colspan=4 align=center><input type=submit value='ÉÏ´«' /></tr>	
 </table>
 </form>
 <?php
@@ -46,7 +46,7 @@ if ($continue_up) {
 		$mem = false;
 	} else {
 		?>
-<div id=login width=100% align=center>Login to Netload.in</div>
+<div id=login width=100% align=center>µÇÂ¼µ½Netload.in</div>
 <?php
 		$mem = true;
 		$Url = parse_url("http://netload.in/index.php");

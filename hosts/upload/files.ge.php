@@ -14,7 +14,7 @@ if ($_REQUEST['action'] == "FORM")
 <input type=hidden name=filename value='<?php echo base64_encode($_REQUEST['filename']); ?>'>
 <tr><td nowrap>&nbsp;Login<td>&nbsp;<input name=bin_login value='' style="width:160px;">&nbsp;</tr>
 <tr><td nowrap>&nbsp;Password<td>&nbsp;<input type=password name=bin_pass value='' style="width:160px;">&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload'></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传'></tr>
 </table>
 </form>
 <?php
@@ -33,7 +33,7 @@ if ($continue_up)
 <table width=600 align=center> 
 </td></tr> 
 <tr><td align=center> 
-<div id=login width=100% align=center>Login to site</div> 
+<div id=login width=100% align=center>登录到site</div> 
 <?php 
 			$ref='http://files.ge/';
 			$Url=parse_url($ref);
@@ -59,7 +59,7 @@ if ($continue_up)
 			
 ?>
 <script>document.getElementById('login').style.display='none';</script> 
-<div id=info width=100% align=center>Retrive upload ID</div> 
+<div id=info width=100% align=center>验证上传用户名</div> 
 <?php
 				
             $page = geturl($Url["host"],80,"/",$ref,$cookie);

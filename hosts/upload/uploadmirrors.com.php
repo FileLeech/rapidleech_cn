@@ -80,7 +80,7 @@ function maxMirrors(box)
 <td><label><input  onclick="maxMirrors(this);" type="checkbox" name="rapidshare" id="rapidshare"   />RapidShare</label></td>
 <tr><td><label><input  onclick="maxMirrors(this);" type="checkbox" name="zippyshare" id="zippyshare"  checked="checked" />ZippyShare</label></td>
 <td><label><input  onclick="maxMirrors(this);" type="checkbox" name="filefactory" id="filefactory"  checked="checked" />FileFactory</label></td>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 <?php
@@ -93,7 +93,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 
 	$rand = mt_rand(1000000000000, 1999999999999);

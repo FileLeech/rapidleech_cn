@@ -7,7 +7,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to Shareflare.net</div>
+<div id=login width=100% align=center>登录到Shareflare.net</div>
 <?php 
 			$page = geturl("shareflare.net", 80, "/", 0, 0, 0, 0, $_GET["proxy"], $pauth);
 			is_page($page);

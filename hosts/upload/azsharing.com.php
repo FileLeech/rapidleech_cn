@@ -1,5 +1,5 @@
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 	$ref='http://azsharing.com/';
 	$Url=parse_url($ref);

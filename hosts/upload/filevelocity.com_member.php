@@ -21,9 +21,9 @@ $filevelocity_pass = ''; //  Set your password
     <table border=0 style="width:270px;" cellspacing=0 align=center>
         <form method="post">
         <input type='hidden' name='action' value='FORM' />
-            <tr><td nowrap>&nbsp;User*<td>&nbsp;<input type='text' name='fv_user' value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type='password' name='fv_pass' value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td colspan=2 align=center><input type='submit' value='Upload' /></tr>
+            <tr><td nowrap>&nbsp;用户名*<td>&nbsp;<input type='text' name='fv_user' value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type='password' name='fv_pass' value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td colspan=2 align=center><input type='submit' value='上传' /></tr>
             <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["filevelocity.com_member"]; ?></b></small></tr>
         </form>
     </table>
@@ -36,7 +36,7 @@ $filevelocity_pass = ''; //  Set your password
     </td></tr>
     <tr><td align=center>
     		<script>document.getElementById('info').style.display='none';</script>
-            <div id='info' width='100%' align='center'>Login to Filevelocity.com</div>
+            <div id='info' width='100%' align='center'>登录到Filevelocity.com</div>
         <?php
 		$ext = extensao($lname);
 		if($ext == 'php' || $ext == 'pl' || $ext == 'cgi' || $ext == 'py' ||  $ext == 'sh' ||  $ext == 'shtml'){
@@ -59,7 +59,7 @@ $filevelocity_pass = ''; //  Set your password
 	}
         ?> 
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div> 
+<div id=info width=100% align=center>验证上传用户名</div> 
 <?php
 			$url = parse_url('http://filevelocity.com/');
 			$page = geturl($url["host"], $url["port"] ? $url["port"] : 80, $url["path"] . ($url["query"] ? "?" . $url["query"] : ""), "http://filevelocity.com/login.html", $cookie, 0, 0, $_GET["proxy"], $pauth);

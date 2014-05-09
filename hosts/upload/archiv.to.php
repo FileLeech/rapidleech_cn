@@ -12,7 +12,7 @@ if ($continue_up)
 		$post["UPLOAD_IDENTIFIER"] = cut_str($page,'id="UPLOAD_IDENTIFIER" value="','"'); 
 ?>
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div> 
+<div id=info width=100% align=center>验证上传用户名</div> 
 <?php	
 		$url=parse_url('http://xyz.archiv.to:81/upload/frame');
 		$post["data[Upload][mail]"] = "";

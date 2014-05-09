@@ -65,9 +65,9 @@ else {
 	<form method='POST'>
 	<input type='hidden' name='action' value='FORM' />";
 	if (!$login) echo "<tr><td style='white-space:nowrap;'>&nbsp;Multiupload Acc*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
-	echo "\t<tr><td colspan='2' align='center'><br />Upload options*<br /><br /></td></tr>
-	<tr><td style='white-space:nowrap;'>File Description:</td><td>&nbsp;<input type='text' name='up_description' value='Uploaded with Rapidleech.' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	echo "\t<tr><td colspan='2' align='center'><br />上传选项<br /><br /></td></tr>
+	<tr><td style='white-space:nowrap;'>File 描述：</td><td>&nbsp;<input type='text' name='up_description' value='Uploaded with Rapidleech.' style='width:160px;' /></td></tr>
 	<tr><td colspan='2' align='center'><br />Upload to these hosts*<br /><br /></td></tr>\n";
 	$pre_tr = true;
 	foreach ($sites as $site) {
@@ -76,7 +76,7 @@ else {
 		else echo "<td style='text-align:right;font-weight:bold;'>&nbsp;[Default Account Loaded]</td></tr>\n";
 		echo "\t<tr><td><br /></td></tr>\n";
 	}
-	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>
+	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>
 	<tr><td colspan='2' align='center'><small>*You can set it as default in <b>{$page_upload["multiupload.com_member"]}</b></small></td></tr>\n</table>\n</form>\n";
 	echo "<script type='text/javascript'>self.resizeTo(700,600);</script>\n"; //Resize upload window
 }
@@ -84,7 +84,7 @@ else {
 if ($continue_up) {
 	$not_done = false;
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to Multiupload</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到Multiupload</div>\n";
 
 	if (!empty($_REQUEST['up_login']) && !empty($_REQUEST['up_pass'])) {
 		$post = array();
@@ -100,7 +100,7 @@ if ($continue_up) {
 		echo "<b><center>Login not found or empty, using non member upload.</center></b>\n";
 	}
 
-	// Retrive upload ID
+	// 验证上传用户名
 	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retriving upload server</div>\n";
 
 	$page = geturl($domain, 80, "/", 0, $cookie);is_page($page);

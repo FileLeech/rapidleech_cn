@@ -20,17 +20,17 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != 'FORM') {
 	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>
 	<form method='POST'>
 	<input type='hidden' name='action' value='FORM' />
-	<tr><td style='white-space:nowrap;'>&nbsp;Username*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
-	echo "<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>\n";
-	echo "<tr><td colspan='2' align='center'><small>*You can set it as default in <b>".basename(__FILE__)."</b></small></td></tr>\n";
+	<tr><td style='white-space:nowrap;'>&nbsp;用户名*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	echo "<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>\n";
+	echo "<tr><td colspan='2' align='center'><small>*您可以在 <b>".basename(__FILE__)."</b> 中设置默认帐号</small></td></tr>\n";
 	echo "</table>\n</form>\n";
 } else {
 	$not_done = false;
 	$cookie = array();
 
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to uploadhero.co</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到uploadhero.co</div>\n";
 
 	if (!empty($_REQUEST['up_login']) && !empty($_REQUEST['up_pass'])) {
 		$query = array();
@@ -50,7 +50,7 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != 'FORM') {
 		$login = false;
 	}
 
-	// Retrive upload ID
+	// 验证上传用户名
 	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Preparing upload</div>\n";
 
 	if (!$GetUpUrlFromApi) {

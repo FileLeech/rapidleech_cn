@@ -15,9 +15,9 @@ if (!empty($upload_acc['filefactory_com']['user']) && !empty($upload_acc['filefa
 }
 
 if (empty($_REQUEST['action']) || $_REQUEST['action'] != '_T8_') {
-	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>\n<form method='POST'>\n\t<input type='hidden' name='action' value='_T8_' />\n\t<tr><td style='white-space:nowrap;'>&nbsp;Email*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>\n\t<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
-	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>\n";
-	echo "\t<tr><td colspan='2' align='center'><small>*You can set it as default in <b>".basename(__FILE__)."</b></small></td></tr>\n";
+	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>\n<form method='POST'>\n\t<input type='hidden' name='action' value='_T8_' />\n\t<tr><td style='white-space:nowrap;'>&nbsp;邮箱*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>\n\t<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>\n";
+	echo "\t<tr><td colspan='2' align='center'><small>*您可以在 <b>".basename(__FILE__)."</b> 中设置默认帐号</small></td></tr>\n";
 	echo "</form>\n</table>\n";
 } else {
 	$not_done = $login = false;
@@ -25,7 +25,7 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != '_T8_') {
 	$referer = "http://$domain";
 
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to FileFactory</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到FileFactory</div>\n";
 
 	$cookie = array('ff_locale'=>'en_US.utf8');
 	if (!empty($_REQUEST['up_login']) && !empty($_REQUEST['up_pass'])) {
@@ -45,8 +45,8 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != '_T8_') {
 		$login = true;
 	} else html_error('Login failed: User/Password empty.');
 
-	// Retrive upload ID
-	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retrive upload ID</div>\n";
+	// 验证上传用户名
+	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>验证上传用户名</div>\n";
 
 	$post = array();
 	$post['cookie'] = rawurldecode($cookie['auth']);

@@ -17,7 +17,7 @@ if ($hostingcup_login & $hostingcup_pass){
 	$_REQUEST['my_login'] = $hostingcup_login;
 	$_REQUEST['my_pass'] = $hostingcup_pass;
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -26,9 +26,9 @@ else{
 <table border=0 style="width:270px;" cellspacing=0 align=center>
 <form method=post>
 <input type=hidden name=action value='FORM' />
-<tr><td nowrap>&nbsp;Email*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td nowrap>&nbsp;邮箱*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["hostingcup.com"]; ?></b></small></tr>
 </form>
 </table>

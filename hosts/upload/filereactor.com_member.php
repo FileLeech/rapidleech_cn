@@ -16,8 +16,8 @@ else{
 <form method=post>
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;Login*<td>&nbsp;<input type=text name=login value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 <tr><td colspan=2 align=center><br /><br /><a href="http://leafleech.com" target="_blank"  width='100%' align='center' style="font-size:16px">Upload Plugin by <b>LeafLeech</b></a></tr>
 </table>
 </form>
@@ -31,7 +31,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to filereactor.com</div>
+<div id=login width=100% align=center>登录到filereactor.com</div>
 <?php
 			$post['op'] = "login" ;
 			$post['redirect'] = "http://filereactor.com/" ;
@@ -49,7 +49,7 @@ if ($continue_up)
 			is_notpresent($page, 'HTTP/1.1 200 OK', 'Error logging in - are your logins correct?Second');
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 	$ref='http://filereactor.com/?op=upload_form';
 	$Url=parse_url($ref);

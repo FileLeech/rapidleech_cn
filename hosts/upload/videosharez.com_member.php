@@ -24,16 +24,16 @@ else {
 	<form method='POST'>
 	<input type='hidden' name='action' value='FORM' />";
 	if (!$login) echo "<tr><td style='white-space:nowrap;'>&nbsp;Login*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>
 	<tr><td colspan='2' align='center'><small>*You can set it as default in <b>{$page_upload["videosharez.com_member"]}</b></small></td></tr>";
 	echo "\t<tr><td colspan='2' align='center'><br />Upload options<br /><br /></td></tr>
-	<tr><td style='white-space:nowrap;'>Title:</td><td>&nbsp;<input type='text' name='up_title' maxlength='60' value='$lname' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>Description:</td><td>&nbsp;<textarea rows='4' style='width:160px;' name='up_description'>Uploaded with Rapidleech.</textarea></td></tr>
-	<tr><td style='white-space:nowrap;'>Tags:&nbsp;<span title='Click for help' onclick='javascript:alert(\"Enter one or more tags, separated by spaces.\");'>[?]</span></td><td>&nbsp;<input type='text' name='up_tags' maxlength='120' value='' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>标题：</td><td>&nbsp;<input type='text' name='up_title' maxlength='60' value='$lname' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>描述：</td><td>&nbsp;<textarea rows='4' style='width:160px;' name='up_description'>Uploaded with Rapidleech.</textarea></td></tr>
+	<tr><td style='white-space:nowrap;'>标签：&nbsp;<span title='Click for help' onclick='javascript:alert(\"Enter one or more tags, separated by spaces.\");'>[?]</span></td><td>&nbsp;<input type='text' name='up_tags' maxlength='120' value='' style='width:160px;' /></td></tr>
 	<tr><td style='white-space:nowrap;'>Video Channels:&nbsp;<span title='Click for help' onclick='javascript:alert(\"Select between one to three channels that best describe your video.\")'>[?]</span></td><td>\n";
 	foreach($chans as $v => $n) echo "\t<input type='checkbox' name='up_chan[]' value='$v' /> $n\n";
 	echo "\t</td></tr>
-	<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>\n</table>\n</form>\n";
+	<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>\n</table>\n</form>\n";
 	echo "<script type='text/javascript'>self.resizeTo(700,450);</script>\n"; //Resize upload window
 }
 
@@ -59,7 +59,7 @@ if ($continue_up) {
 	}
 
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to Videosharez</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到Videosharez</div>\n";
 
 	if (empty($_REQUEST['up_login']) || empty($_REQUEST['up_pass'])) html_error("Login failed: User/Password empty.", 0);
 	$post = array();
@@ -73,8 +73,8 @@ if ($continue_up) {
 	is_notpresent($page, 'Set-Cookie: remember=', 'Error: Login cookie not found.');
 	$cookie = GetCookies($page);
 
-	// Retrive upload ID
-	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retrive upload ID</div>\n";
+	// 验证上传用户名
+	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>验证上传用户名</div>\n";
 
 	$page = geturl("www.videosharez.com", 80, "/ubr_link_upload.php?config_file=ubr_default_config.php&rnd_id=".time().rand(100,999), 0, $cookie);is_page($page);
 	if (!preg_match('@startUpload\("([^"]+)"@i', $page, $uid)) html_error("Upload ID not found.", 0);

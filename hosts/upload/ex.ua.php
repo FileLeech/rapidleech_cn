@@ -10,7 +10,7 @@ $mode = "guest";            // switch this variable if must upload in "guest" "m
 
 $form =<<<FORM
      
-<table border=0 style="width:350px;" cellspacing=0 align=center> <form method=post> <input type=hidden name=action value='FORM' /> <tr><td nowrap>&nbsp;Username*</td><td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</td></tr> <tr><td nowrap>&nbsp;Password*</td><td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</td></tr> <tr><td colspan=2 align=center><input type=submit value='Upload'></td></tr> </form> </table>       
+<table border=0 style="width:350px;" cellspacing=0 align=center> <form method=post> <input type=hidden name=action value='FORM' /> <tr><td nowrap>&nbsp;用户名*</td><td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</td></tr> <tr><td nowrap>&nbsp;密码*</td><td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</td></tr> <tr><td colspan=2 align=center><input type=submit value='上传'></td></tr> </form> </table>       
 FORM;
 
 $not_done= true;
@@ -31,7 +31,7 @@ $not_done= true;
 		$continue_up = true;
 		$user = $site_login;
 		$pass = $site_pass;
-		echo "<b><center>Use Default login/pass.</center></b>";
+		echo "<b><center>使用默认的用户名/密码。</center></b>";
 		}else{ 
 		     echo $form;
 		     }

@@ -11,7 +11,7 @@ if ($megashare_login && $megashare_pass){
 	$_REQUEST['my_login'] = $megashare_login;
 	$_REQUEST['my_pass'] = $megashare_pass;
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -20,9 +20,9 @@ else{
 <table border=0 style="width:270px;" cellspacing=0 align=center>
 <form method=post>
 <input type=hidden name=action value='FORM' />
-<tr><td nowrap>&nbsp;Email*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td nowrap>&nbsp;邮箱*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["megashare.com"]; ?></b></small></tr>
 </table>
 </form>
@@ -35,7 +35,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to Megashare.com</div>
+<div id=login width=100% align=center>登录到Megashare.com</div>
 <?php 
                         
                         $post['loginid'] = $_REQUEST['my_login'];
@@ -50,7 +50,7 @@ if ($continue_up)
                         
 	?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <script>document.getElementById('info').style.display='none';</script>
 <?php 
                         $url_up = cut_str($page, '<form name="form_upload" method="post" enctype="multipart/form-data"  action="','" ');

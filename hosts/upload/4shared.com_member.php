@@ -19,16 +19,16 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != 'FORM') {
 	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>
 	<form method='POST'>
 	<input type='hidden' name='action' value='FORM' />
-	<tr><td style='white-space:nowrap;'>&nbsp;Email*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
-	echo "<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>\n";
-	echo "<tr><td colspan='2' align='center'><small>*You can set it as default in <b>".basename(__FILE__)."</b></small></td></tr>\n";
+	<tr><td style='white-space:nowrap;'>&nbsp;邮箱*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	echo "<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>\n";
+	echo "<tr><td colspan='2' align='center'><small>*您可以在 <b>".basename(__FILE__)."</b> 中设置默认帐号</small></td></tr>\n";
 	echo "</form>\n</table>\n";
 } else {
 	$not_done = false;
 
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to 4shared.com</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到4shared.com</div>\n";
 
 	if (!empty($_REQUEST['up_login']) && !empty($_REQUEST['up_pass'])) {
 		$user = $_REQUEST['up_login'];
@@ -56,8 +56,8 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != 'FORM') {
 		elseif ($fsize > $client->getFreeSpace($user, $pass)) html_error('Error: Not enough space in your account.');
 	} else html_error('Login failed: User/Password empty.');
 
-	// Retrive upload ID
-	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retrive upload ID</div>\n";
+	// 验证上传用户名
+	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>验证上传用户名</div>\n";
 
 	$session = $client->createUploadSessionKey($user, $pass, -1);
 	if (!$session) html_error('Error: Cannot get upload session.');

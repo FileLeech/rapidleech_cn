@@ -113,7 +113,7 @@ function maxMirrors(box)
 <tr><td><label onclick="maxMirrors(this);" for="filekeen">FileKeen<br/><span id="maxsize">Max. 400 MB</span></label><input onclick="maxMirrors(this);" type="checkbox" name="filekeen" id="filekeen"></td>
 <td><label onclick="maxMirrors(this);" for="gaiafile">GaiaFile<br/><span id="maxsize">Max. 400 MB</span></label><input onclick="maxMirrors(this);" type="checkbox" name="gaiafile" id="gaiafile"></td>
 <td><label onclick="maxMirrors(this);" for="filehook">FileHook<br/><span id="maxsize">Max. 400 MB</span></label><input onclick="maxMirrors(this);" type="checkbox" name="filehook" id="filehook"></td></tr>
-<tr><td colspan=3 align=center><input type=submit value='Upload' /></tr>
+<tr><td colspan=3 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 <?php
@@ -126,7 +126,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
         $rnd = time().rndNum(3);
 	$page = geturl("www.mirrorcreator.com", 80, "/uber/ubr_link_upload.php", "", 0, 0, 0, "");

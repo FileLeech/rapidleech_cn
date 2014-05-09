@@ -41,7 +41,7 @@ class DownloadClass {
 				$cV = curl_version();
 				if (in_array('https', $cV['protocols'], true)) $chttps = true;
 			}
-			if (!extension_loaded('openssl') && !$chttps) html_error('This server doesn\'t support https connections.');
+			if (!extension_loaded('openssl') && !$chttps) html_error('此服务器不支持https连接。');
 			elseif (!$chttps) $cURL = false;
 		}
 
@@ -83,7 +83,7 @@ class DownloadClass {
 		if (!empty($post)) $params['post'] = urlencode(encrypt(serialize($post)));
 		if (!empty($auth)) $params['auth'] = ($auth == '1' ? '1' : urlencode(encrypt(base64_encode($auth))));
 		if (!empty($addon)) {
-			if (!is_array($addon)) html_error('Plugin problem! Please report, error: "The parameter passed must be an array"'); // Some problems with the plugin, quit it
+			if (!is_array($addon)) html_error('插件出错！请回报，错误："传递的参数必须是一个数组"'); // Some problems with the plugin, quit it
 			foreach ($addon as $name => $value) $params[$name] = (is_array($value) ? urlencode(serialize($value)) : urlencode($value));
 		}
 		insert_location($params);
@@ -96,9 +96,9 @@ class DownloadClass {
 
 	public function moveToAutoDownloader($link_array) {
 		global $PHP_SELF, $options;
-		if (empty($link_array) || !is_array($link_array) || count($link_array) == 0) html_error('Error getting links from folder.');
+		if (empty($link_array) || !is_array($link_array) || count($link_array) == 0) html_error('从文件夹获取链接时发送错误。');
 
-		if (!is_file('audl.php') || !empty($options['auto_download_disable'])) html_error('audl.php not found or you have disable auto download feature!');
+		if (!is_file('audl.php') || !empty($options['auto_download_disable'])) html_error('audl.php未发现或您已禁用了批量下载功能！');
 
 		$pos = strrpos($PHP_SELF, '/');
 		$audlpath = ($pos !== false) ? substr($PHP_SELF, 0, $pos + 1).'audl.php?GO=GO' : 'audl.php?GO=GO';
@@ -197,11 +197,11 @@ class DownloadClass {
 	}
 
 	public function reCAPTCHA($publicKey, $inputs, $sname = 'Download File') {
-		if (empty($publicKey) || preg_match('/[^\w\-]/', $publicKey)) html_error('Invalid reCAPTCHA public key.');
+		if (empty($publicKey) || preg_match('/[^\w\-]/', $publicKey)) html_error('无效的reCAPTCHA公匙。');
 		if (!is_array($inputs)) html_error('Error parsing captcha post data.');
 		// Check for a global recaptcha key
 		$page = $this->GetPage('http://www.google.com/recaptcha/api/challenge?k=' . $publicKey, 0, 0, 'http://fakedomain.tld/fakepath');
-		if (substr($page, 9, 3) != '200') html_error('Invalid or deleted reCAPTCHA public key.');
+		if (substr($page, 9, 3) != '200') html_error('无效或已删除的reCAPTCHA公钥。');
 
 		if (strpos($page, 'Invalid referer') === false) {
 			// Embed captcha
@@ -212,11 +212,11 @@ class DownloadClass {
 		} else {
 			// Download captcha
 			$page = $this->GetPage('http://www.google.com/recaptcha/api/challenge?k=' . $publicKey);
-			if (!preg_match('@[\{,\s]challenge\s*:\s*[\'\"]([\w\-]+)[\'\"]@', $page, $challenge)) html_error('Error getting reCAPTCHA challenge.');
+			if (!preg_match('@[\{,\s]challenge\s*:\s*[\'\"]([\w\-]+)[\'\"]@', $page, $challenge)) html_error('获取reCAPTCHA改变时发生错误。');
 			$inputs['recaptcha_challenge_field'] = $challenge = $challenge[1];
 
 			list($headers, $imgBody) = explode("\r\n\r\n", $this->GetPage('http://www.google.com/recaptcha/api/image?c=' . $challenge), 2);
-			if (substr($headers, 9, 3) != '200') html_error('Error downloading captcha img.');
+			if (substr($headers, 9, 3) != '200') html_error('下载captcha验证码时发生错误。');
 			$mimetype = (preg_match('@image/[\w+]+@', $headers, $mimetype) ? $mimetype[0] : 'image/jpeg');
 
 			$this->EnterCaptcha("data:$mimetype;base64,".base64_encode($imgBody), $inputs, 20, $sname, 'recaptcha_response_field');

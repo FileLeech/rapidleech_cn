@@ -35,8 +35,8 @@ if (!$_T8['xfsFree'] && !empty($upload_acc[$acc_key_name]['user']) && !empty($up
 }
 
 if (!$_T8['xfsFree'] && (empty($_REQUEST['action']) || $_REQUEST['action'] != 'FORM')) {
-	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>\n<form method='POST'>\n\t<input type='hidden' name='action' value='FORM' />\n\t<tr><td style='white-space:nowrap;'>&nbsp;Username*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>\n\t<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
-	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>\n";
+	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>\n<form method='POST'>\n\t<input type='hidden' name='action' value='FORM' />\n\t<tr><td style='white-space:nowrap;'>&nbsp;用户名*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>\n\t<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>\n";
 	echo "\t<tr><td colspan='2' align='center'><small>*You can set it as default in <b>".$page_upload[$_REQUEST['uploaded']]."</b></small></td></tr>\n";
 	echo "</form>\n</table>\n";
 } else {
@@ -48,7 +48,7 @@ if (!$_T8['xfsFree'] && (empty($_REQUEST['action']) || $_REQUEST['action'] != 'F
 	$referer = $scheme.'://'.$_T8['domain'].$_T8['path'];
 
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to ".str_ireplace('www.', '', $_T8['domain'])."</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到".str_ireplace('www.', '', $_T8['domain'])."</div>\n";
 
 	$cookie = (!empty($cookie)) ? (is_array($cookie) ? $cookie : StrToCookies($cookie)) : array();
 	$cookie['lang'] = 'english';
@@ -77,8 +77,8 @@ if (!$_T8['xfsFree'] && (empty($_REQUEST['action']) || $_REQUEST['action'] != 'F
 		$login = false;
 	}
 
-	// Retrive upload ID
-	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retrive upload ID</div>\n";
+	// 验证上传用户名
+	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>验证上传用户名</div>\n";
 
 	$page = geturl($_T8['domain'], $_T8['port'], $_T8['path'].'?op='.(empty($_T8['opUploadName']) ? 'upload' : urlencode($_T8['opUploadName'])), $referer, $cookie, 0, 0, $_GET['proxy'], $pauth, 0, $scheme);is_page($page);
 	if (substr($page, 9, 3) != '200') {

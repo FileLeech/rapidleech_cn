@@ -10,7 +10,7 @@ $fileape_pass = '';
 					$_REQUEST['fileape_login'] = $fileape_login;
 					$_REQUEST['fileape_pass'] = $fileape_pass;
 					$_REQUEST['action'] = "FORM";
-					echo "<b><center>Use Default login/pass.</center></b>\n";
+					echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 				}
 				if ($_REQUEST['action'] == "FORM")
 					$continue_up=true;
@@ -21,9 +21,9 @@ $fileape_pass = '';
 <table border=0 style="width:270px;" cellspacing=0 align=center>
 <form method=post>
 <input type=hidden name=action value='FORM' />
-<tr><td nowrap>&nbsp;User*<td>&nbsp;<input type=text name=fileape_login style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=fileape_pass style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td nowrap>&nbsp;用户名*<td>&nbsp;<input type=text name=fileape_login style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=fileape_pass style="width:160px;" />&nbsp;</tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 
@@ -39,7 +39,7 @@ if ($continue_up)
 <tr><td align=center> 
 <div id=login width=100% align=center></div> 
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Login to Fileape.com</div> 
+<div id=info width=100% align=center>登录到Fileape.com</div> 
 <?php
 			if ($_REQUEST['action'] == "FORM" && !empty($_REQUEST['fileape_login']) && !empty($_REQUEST['fileape_pass'])) {
 			$post = array();
@@ -58,7 +58,7 @@ if ($continue_up)
 				}
 ?>
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div> 
+<div id=info width=100% align=center>验证上传用户名</div> 
 <?php
 			$page = geturl("fileape.com", 80, "/", 0, $cookies, 0, 0, $_GET["proxy"]);
 			is_page($page);

@@ -21,11 +21,11 @@ else{
 <form method=post>
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;Login*<td>&nbsp;<input type=text name=user value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
 <tr><td nowrap>&nbsp;<td>&nbsp;&nbsp;</tr>
 <tr><td nowrap>&nbsp;Title*<td>&nbsp;<input type=text name=title value='Enter Title here' style="width:160px;" />&nbsp;</tr>
 <tr><td nowrap>&nbsp;Description*<td>&nbsp;<textarea name=description style="width: 160px;">Enter Description here</textarea>&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 <?php
@@ -38,7 +38,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to www.movshare.net</div>
+<div id=login width=100% align=center>登录到www.movshare.net</div>
 <?php
 			
 			$post['user'] = $_REQUEST['user'];
@@ -60,7 +60,7 @@ if ($continue_up)
 
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 	$ref='http://www.movshare.net/';
 	$Url=parse_url($ref.'panel.php?q=3');

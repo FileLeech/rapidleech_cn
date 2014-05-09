@@ -26,16 +26,16 @@ else {
 	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>
 	<form method='POST'>
 	<input type='hidden' name='action' value='FORM' />
-	<tr><td style='white-space:nowrap;'>&nbsp;Username*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
-	echo "\t<tr><td colspan='2' align='center'><br />Upload options*<br /><br /></td></tr>
-	<tr><td style='white-space:nowrap;'>File Description:</td><td>&nbsp;<input type='text' name='up_description' value='Uploaded with Rapidleech.' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>Upload Category:</td><td>&nbsp;<select name='up_category' style='width:160px;height:20px;'>\n";
+	<tr><td style='white-space:nowrap;'>&nbsp;用户名*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	echo "\t<tr><td colspan='2' align='center'><br />上传选项<br /><br /></td></tr>
+	<tr><td style='white-space:nowrap;'>File 描述：</td><td>&nbsp;<input type='text' name='up_description' value='Uploaded with Rapidleech.' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>Upload 分类：</td><td>&nbsp;<select name='up_category' style='width:160px;height:20px;'>\n";
 	foreach($ftypes as $n => $v) echo "\t<option value='$n'>$v</option>\n";
 	echo "\t</select></td></tr>
 	<tr><td style='white-space:nowrap;'>Link password:</td><td>&nbsp;<input type='text' name='up_lpassword' value='' style='width:160px;' /></td></tr>
 	<tr><td colspan='2' align='center'><input type='checkbox' name='up_searchable' value='yes' checked='checked' />&nbsp; Make link searchable/public</td>";
-	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' /></td></tr>
+	echo "\t<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' /></td></tr>
 	<tr><td colspan='2' align='center'><small>*You can set it as default in <b>{$page_upload["megashares.com_member"]}</b></small></td></tr>\n</table>\n</form>\n";
 	echo "<script type='text/javascript'>self.resizeTo(700,420);</script>\n"; //Resize upload window
 }
@@ -43,7 +43,7 @@ else {
 if ($continue_up) {
 	$not_done = $login = false;
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to Megashares</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到Megashares</div>\n";
 
 	$cookie = "orgrfr=http%3A%2F%2Fmegashares.com%2F";
 	if (!empty($_REQUEST['up_login']) && !empty($_REQUEST['up_pass'])) {
@@ -65,8 +65,8 @@ if ($continue_up) {
 		echo "<b><center>Login not found or empty, using non member upload.</center></b>\n";
 	}
 
-	// Retrive upload ID
-	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retrive upload ID</div>\n";
+	// 验证上传用户名
+	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>验证上传用户名</div>\n";
 
 	$page = geturl("www.megashares.com", 80, "/", 0, $cookie);is_page($page);
 	if (!$login) $cookie = "$cookie; " . GetCookies($page);

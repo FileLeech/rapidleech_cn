@@ -29,7 +29,7 @@ if ($_REQUEST ['action'] == "FORM")
 		<td nowrap>&nbsp;Password		
 		<td>&nbsp;<input type=password name=my_pass value='' style="width: 160px;" />&nbsp;	
 	</tr>	
-	<tr><td colspan=4 align=center><input type=submit value='Upload' /></tr>	
+	<tr><td colspan=4 align=center><input type=submit value='上传' /></tr>	
 </table>
 </form>
 <?php
@@ -42,7 +42,7 @@ if ($continue_up) {
 		$mem = false;
 	} else {
 		?>
-<div id=login width=100% align=center>Login to UploadBox.com</div>
+<div id=login width=100% align=center>登录到UploadBox.com</div>
 <?php
 		$mem = true;
 		$Url = parse_url("http://uploadbox.com/");

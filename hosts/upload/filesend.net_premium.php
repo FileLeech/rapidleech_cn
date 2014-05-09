@@ -11,7 +11,7 @@ if ($filesend_net_login & $filesend_net_pass){
 	$_REQUEST['my_login'] = $filesend_net_login;
 	$_REQUEST['my_pass'] = $filesend_net_pass;
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -21,8 +21,8 @@ else{
 <form method=post>
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;Login*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["filesend.net_premium"]; ?></b></small></tr>
 </table>
 </form>
@@ -37,7 +37,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to Filesend.net</div>
+<div id=login width=100% align=center>登录到Filesend.net</div>
 <?php 
 	        $post['username'] = $_REQUEST['my_login'];
             $post['password'] = $_REQUEST['my_pass'];
@@ -52,7 +52,7 @@ if ($continue_up)
 			$cookie = $cookie[0];
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php 
 			$url_id = "http://dl3.filesend.net/ubr_link_upload.php?config_file=ubr_default_configc.php&rnd_id=".rand(1000000000000, 9999999999999);
 			$Url = parse_url($url_id);

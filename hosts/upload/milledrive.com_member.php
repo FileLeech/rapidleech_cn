@@ -10,7 +10,7 @@ if ($md_login & $md_pass){
 	$_REQUEST['login'] = $md_login;
 	$_REQUEST['password'] = $md_pass;
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -20,7 +20,7 @@ else{
 <form method=post>
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;Login*<td>&nbsp;<input type=text name=login value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
 <tr><td nowrap><label for="name">&nbsp;Transload* 
 <td>&nbsp;Video<input type="radio" name="AV" value="video" onClick="javascript:var displ=this.checked?'':'none';document.getElementById('videoblock').style.display=displ;">
 &nbsp; File<input type="radio" name="AV" value="file">  
@@ -65,7 +65,7 @@ else{
 <tr><td colspan=2 align=center><small style="color:#FFEE00">* Required Field or upload will fail !</small></tr>
 </table>
 <br>
-<center><input type=submit value='Upload' /><center>
+<center><input type=submit value='上传' /><center>
 </form>
 <?php
 }
@@ -77,7 +77,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to milledrive.com</div>
+<div id=login width=100% align=center>登录到milledrive.com</div>
 <?php
 			$post['username'] = $_REQUEST['login'];
 			$post['password'] = $_REQUEST['password'];
@@ -104,7 +104,7 @@ if($_POST['AV'] == "video")
 
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID (Video)</div>
+<div id=info width=100% align=center>验证上传用户名 (视频)</div>
 <?php
 
 	$ref='http://milledrive.com/upload/';
@@ -172,7 +172,7 @@ elseif($_POST['AV'] == "file")
   {
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID (File)</div>
+<div id=info width=100% align=center>验证上传用户名 (文件)</div>
 <?php
 
 	$ref='http://milledrive.com/upload/';

@@ -32,7 +32,7 @@ else{
   <option value="6">Games</option>
 </select></tr>
 <tr><td colspan=2 align=center>Let it empty for free user</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload'></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传'></tr>
 </table>
 </form>
 <?
@@ -61,7 +61,7 @@ if ($continue_up)
 			}	
 ?>
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div> 
+<div id=info width=100% align=center>验证上传用户名</div> 
 <?php
 			$Url=parse_url('http://www.novamov.com/panel.php?q=3');
 			$page = geturl($Url["host"], $Url["port"] ? $Url["port"] : 80, $Url["path"] . ($Url["query"] ? "?" . $Url["query"] : ""), 0, $cookies, 0, 0, $_GET["proxy"], $pauth);

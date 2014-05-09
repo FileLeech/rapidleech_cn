@@ -14,7 +14,7 @@ if ($upload_acc['glumbouploads_com']['user'] && $upload_acc['glumbouploads_com']
 	$_REQUEST['up_description'] = 'Uploaded with Rapidleech'; // File Description.
 	$_REQUEST['up_public'] = 'yes'; // Make link searchable/public.
 	$_REQUEST['up_convert'] = 'yes'; // Convert video to MP4.
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
 	$continue_up=true;
@@ -23,11 +23,11 @@ else{
 <table border="0" style="width:270px;margin:auto;" cellspacing="0">
 <form method="POST">
 <input type="hidden" name="action" value="FORM" />
-<tr><td style="white-space:nowrap;">&nbsp;Username*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td style="white-space:nowrap;">&nbsp;Password*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td colspan='2' align='center'><br />Upload options*<br /><br /></td></tr>
+<tr><td style="white-space:nowrap;">&nbsp;用户名*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;密码*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td colspan='2' align='center'><br />上传选项<br /><br /></td></tr>
 <tr><td colspan='2' align='center'><input type='checkbox' name='up_convert' value='yes' />&nbsp; Convert video to MP4</td></tr>
-<tr><td style='white-space:nowrap;'>File Description:</td><td>&nbsp;<input type='text' name='up_description' value='Uploaded with Rapidleech' style='width:160px;' /></td></tr>
+<tr><td style='white-space:nowrap;'>File 描述：</td><td>&nbsp;<input type='text' name='up_description' value='Uploaded with Rapidleech' style='width:160px;' /></td></tr>
 <tr><td colspan='2' align='center'><input type='checkbox' name='up_public' value='yes' checked='checked' />&nbsp; Make link searchable/public</td></tr>
 <tr><td colspan="2" align="center"><input type="submit" value="Upload" /></tr>
 <tr><td colspan="2" align="center"><small>*You can set it as default in <b><?php echo $page_upload["glumbouploads.com_member"]; ?></b></small></tr>
@@ -44,7 +44,7 @@ if ($continue_up)
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="login" style="width:100%;text-align:center;">Login to glumbouploads.com</div>
+<div id="login" style="width:100%;text-align:center;">登录到glumbouploads.com</div>
 <?php
 	if (!empty($_REQUEST['login']) && !empty($_REQUEST['password'])) {
 		$cookie = 'lang=english';
@@ -66,7 +66,7 @@ if ($continue_up)
 	}
 ?>
 <script type="text/javascript">document.getElementById('login').style.display='none';</script>
-<div id="info" style="width:100%;text-align:center;">Retrive upload ID</div>
+<div id="info" style="width:100%;text-align:center;">验证上传用户名</div>
 <?php
 	$page = geturl("glumbouploads.com", 80, "/", 'http://glumbouploads.com/', $cookie, 0, 0, $_GET["proxy"], $pauth);is_page($page);
 	if (!preg_match('@action="(http://[^/|"]+/[^\?|"]+)\?@i',$page, $up)) html_error('Error: Cannot find upload server.', 0);

@@ -21,9 +21,9 @@ else{
     <table border=0 style="width:270px;" cellspacing=0 align=center>
         <form method="post">
         <input type='hidden' name='action' value='FORM' />
-            <tr><td nowrap>&nbsp;User*<td>&nbsp;<input type='text' name='fk_user' value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type='password' name='fk_pass' value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td colspan=2 align=center><input type='submit' value='Upload' /></tr>
+            <tr><td nowrap>&nbsp;用户名*<td>&nbsp;<input type='text' name='fk_user' value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type='password' name='fk_pass' value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td colspan=2 align=center><input type='submit' value='上传' /></tr>
             <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["freakshare.com"]; ?></b></small></tr>
         </form>
     </table>
@@ -38,7 +38,7 @@ if ($continue_up)
 </td></tr>
 <tr><td align=center>
 <script>document.getElementById('info').style.display='none';</script>
-            <div id='info' width='100%' align='center'>Login to Freakshare.com</div>
+            <div id='info' width='100%' align='center'>登录到Freakshare.com</div>
 <?php
 				if (!empty($_REQUEST['fk_user']) && !empty($_REQUEST['fk_pass'])){
 				$Url=parse_url('http://freakshare.com/login.html');
@@ -57,7 +57,7 @@ if ($continue_up)
 	}
 ?>
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 			$Url=parse_url('http://freakshare.com/');
 			$page = geturl($Url["host"], $Url["port"] ? $Url["port"] : 80, $Url["path"] . ($Url["query"] ? "?" . $Url["query"] : ""), "http://freakshare.com/login.html", $cookies, $post, 0, $_GET["proxy"], $pauth);

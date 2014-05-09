@@ -2,7 +2,7 @@
 </td></tr>
 <tr><td align=center>
 	
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
             $action_url = "http://jamber.info/testing_upload/ubr_link_upload.php?rnd_id=".mt_rand();
             $url = parse_url($action_url); 

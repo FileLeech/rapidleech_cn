@@ -3,7 +3,7 @@
 <tr><td align=center> 
 <div id=login width=100% align=center></div> 
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div> 
+<div id=info width=100% align=center>验证上传用户名</div> 
 <?php
 			$ext = extensao($lname);
 			if($ext == 'php' || $ext == 'pl' || $ext == 'cgi' || $ext == 'py' ||  $ext == 'sh' ||  $ext == 'shtml'){

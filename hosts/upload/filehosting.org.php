@@ -19,7 +19,7 @@ else{
 <form method=post>
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;E-mail*<td>&nbsp;<input type=text name=email value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 <?php
@@ -33,7 +33,7 @@ if ($continue_up)
 </td></tr>
 <tr><td align=center>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 			$page = geturl("www.filehosting.org", 80, "/", 0, 0, 0, 0, $_GET["proxy"], $pauth);
 			is_page($page);

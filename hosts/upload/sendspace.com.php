@@ -2,7 +2,7 @@
 </td></tr>
 <tr><td align=center>
     
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php 
 //************************ Login *******************
 $sendspace_login="";
@@ -39,7 +39,7 @@ if ($_REQUEST ['action'] == "FORM")
 		<td colspan=3>&nbsp;<b>If you have no sendspace account then, kindly press upload button to upload</b>&nbsp;			
 	</tr>
 	<tr>
-		<td colspan=4 align=center><input type=submit value='Upload' />
+		<td colspan=4 align=center><input type=submit value='上传' />
 	</tr>	
 </table>
 </form>

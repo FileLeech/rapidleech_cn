@@ -10,7 +10,7 @@ if ($fourshare_vn_login && $fourshare_vn_pass) {
     $_REQUEST['my_login'] = $fourshare_vn_login;
     $_REQUEST['my_pass'] = $fourshare_vn_pass;
     $_REQUEST['action'] = "FORM";
-    echo "<b><center>Use Default login/pass.</center></b>\n";
+    echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up = true;
@@ -19,9 +19,9 @@ else {
     <table border=0 style="width:270px;" cellspacing=0 align=center>
         <form method=post>
             <input type=hidden name=action value='FORM' />
-            <tr><td nowrap>&nbsp;Username*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
-            <tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+            <tr><td nowrap>&nbsp;用户名*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
+            <tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
             <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["4share.vn"];
     exit; ?></b></small></tr>
     </table>
@@ -36,7 +36,7 @@ if ($continue_up) {
     <table width=600 align=center>
     </td></tr>
     <tr><td align=center>
-            <div id=login width=100% align=center>Login to up.4share.vn</div>
+            <div id=login width=100% align=center>登录到up.4share.vn</div>
             <?php
             $page = geturl("up.4share.vn", 80, "/", 0, 0, 0, 0, $_GET["proxy"], $pauth);
             is_page($page);

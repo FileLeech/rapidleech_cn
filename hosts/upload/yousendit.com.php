@@ -2,7 +2,7 @@
 </td></tr>
 <tr><td align=center>
 	
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 			$Href = "http://www.yousendit.com/ajaxgateway.php?action=GetBatchId&bname=".$lname."&fcount=1&pnref=&cc_four=&cc_exp=&cc_id=&amount=0&lock=0&desc=&dropbox=&upl_subject=&exp_interval=7%20DAY&r=".rand(10000, 999999999);
 			$Url = parse_url($Href);

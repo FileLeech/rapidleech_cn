@@ -21,8 +21,8 @@ $fj_pass = "";//Set your password
 	<form method='post'>
 	<input type='hidden' name='action' value='FORM' />
 	<tr><td nowrap>&nbsp;Login*<td>&nbsp;<input type='text' name='login' value='' style="width:195px;" />&nbsp;</tr>
-	<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type='password' name='password' value='' style="width:195px;" />&nbsp;</tr>
-	<tr><td colspan=2 align=center><input type='submit' value='Upload'/></tr>
+	<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type='password' name='password' value='' style="width:195px;" />&nbsp;</tr>
+	<tr><td colspan=2 align=center><input type='submit' value='上传'/></tr>
 	<tr><td colspan=2 align=center><small>*You can set it as default in <b>filejungle.com_member.php</b>*</tr></table></form>
 <?php
 		}
@@ -32,7 +32,7 @@ $fj_pass = "";//Set your password
     	<table width='600' align='center'>
 		</td></tr><tr><td align=center>
         <script>document.getElementById('info').style.display='none';</script>
-		<div id='login' width=100% align='center'>Login to <b>filejungle.com</b></div>
+		<div id='login' width=100% align='center'>登录到<b>filejungle.com</b></div>
 <?php
 	if (!empty($_REQUEST['login']) && !empty($_REQUEST['password'])) {
     $post['autoLogin']         = 'on';
@@ -52,7 +52,7 @@ $fj_pass = "";//Set your password
 	}
 ?>
 				<script>document.getElementById('login').style.display='none';</script>
-				<div id='info' width='100%' align='center'>Retrive upload ID</div> 
+				<div id='info' width='100%' align='center'>验证上传用户名</div> 
 <?php
     $page = geturl('filejungle.com', 80, '/upload.php', 'http://filejungle.com/dashboard.php', $cookies, 0, 0, 0, $_GET['proxy'], $pauth);
     is_page($page);

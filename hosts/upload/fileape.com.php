@@ -3,7 +3,7 @@
 <tr><td align=center> 
 <div id=login width=100% align=center></div> 
 <script>document.getElementById('info').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div> 
+<div id=info width=100% align=center>验证上传用户名</div> 
 <?php
 			$url=parse_url('http://fileape.com/');
 			$page = geturl($url["host"], $url["port"] ? $url["port"] : 80, $url["path"] . ($url["query"] ? "?" . $url["query"] : ""), "http://fileape.com/", 0, 0, 0, $_GET["proxy"], $pauth);

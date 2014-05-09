@@ -27,11 +27,11 @@ if ($_REQUEST['action'] == "FORM")
 else
 {
 	echo <<<EOF
-<div id=login width=100% align=center>Login to Site</div>
+<div id=login width=100% align=center>登录到Site</div>
 <table border=0 style="width:350px;" cellspacing=0 align=center>
 	<form method=post>
 		<input type=hidden name=action value='FORM' />
-		<tr><td nowrap>&nbsp;Username*</td><td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</td></tr>
+		<tr><td nowrap>&nbsp;用户名*</td><td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</td></tr>
 		<tr><td nowrap>&nbsp;Mail-Domain*</td>
 				<td>&nbsp;<select type=password name=my_maildom value='' style="width:180px;">
 										<option value='yahoo.com'>@yahoo.com</option>
@@ -42,8 +42,8 @@ else
 				</td>
 		</tr>
 		<tr><td nowrap>&nbsp;Description*</td><td>&nbsp;<input type=text name=my_desc value='Upload by RL' style="width:250px;" />&nbsp;</td></tr>
-		<tr><td nowrap>&nbsp;Password*</td><td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</td></tr>
-		<tr><td colspan=2 align=center><input type=submit value='Upload'></td></tr>
+		<tr><td nowrap>&nbsp;密码*</td><td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</td></tr>
+		<tr><td colspan=2 align=center><input type=submit value='上传'></td></tr>
 	</form>
 </table>
 EOF;
@@ -60,7 +60,7 @@ if ($continue_up)
 </td></tr>
 <tr><td align=center>
 	
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 			$post['user_email'] = trim($_REQUEST['my_login']);
             $post['user_password'] = trim($_REQUEST['my_pass']);

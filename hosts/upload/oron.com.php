@@ -1,7 +1,7 @@
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="info" style="width:100%;text-align:center;">Retrive upload ID</div>
+<div id="info" style="width:100%;text-align:center;">验证上传用户名</div>
 <?php
 	$cookie = 'lang=english';
 	$page = geturl("oron.com", 80, "/", 'http://oron.com/login', $cookie, 0, 0, $_GET["proxy"], $pauth);is_page($page);

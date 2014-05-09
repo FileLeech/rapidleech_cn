@@ -38,10 +38,10 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != 'FORM') {
 	<form method='POST'>
 	<input type='hidden' name='action' value='FORM' />
 	<tr><td style='white-space:nowrap;'>&nbsp;Login*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
 	echo "\t<tr><td colspan='2' align='center'><br />Upload to these hosts*<br /><br /></td></tr>\n";
 	foreach ($sites as $site => $mblimit) echo "\t<tr><td style='white-space:nowrap;' align='left'><input type='checkbox' name='UpT8[" . htmlentities($site, ENT_QUOTES) . "]' value='1'" . (($fsize > ($mblimit * 1048576)) ? " title='This file is too heavy for the max size allowed for this hoster.'" : (!empty($DontUlTo[$site]) ? " title='Unchecked by default for \$DontUlTo setting.'" : " checked='checked'")) . " /></td><td style='white-space:nowrap;' align='right'>&nbsp;".htmlentities($site)."&nbsp; ($mblimit MB)</td>\n";
-	echo "<tr><td colspan='2' align='center'><br /><input type='submit' value='Upload' onclick='javascript:return checkh();' /></td></tr>\n";
+	echo "<tr><td colspan='2' align='center'><br /><input type='submit' value='上传' onclick='javascript:return checkh();' /></td></tr>\n";
 	echo "<tr><td colspan='2' align='center'><small>*You can set it as default in <b>" . basename(__FILE__) . "</b></small></td></tr>\n";
 	echo "</form>\n</table>\n";
 	echo "<script type='text/javascript'>/*<![CDATA[*/\nself.resizeTo(700,600);function checkh() {if ($(':checkbox').filter(':checked').length < 1) {alert('You mush select at least one filehoster for upload.'); return false;} return true;\n}\n/*]]>*/</script>\n"; //Resize upload window && Form Check
@@ -49,7 +49,7 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != 'FORM') {
 	$login = $not_done = false;
 
 	// Login
-	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>Login to $domain</div>\n";
+	echo "<table style='width:600px;margin:auto;'>\n<tr><td align='center'>\n<div id='login' width='100%' align='center'>登录到$domain</div>\n";
 
 	$cookie = array('user_lang' => 'en');
 	if (!empty($_REQUEST['up_login']) && !empty($_REQUEST['up_pass'])) {
@@ -66,8 +66,8 @@ if (empty($_REQUEST['action']) || $_REQUEST['action'] != 'FORM') {
 		$login = true;
 	} else echo "<b><center>Login not found or empty, using non member upload.</center></b>\n";
 
-	// Retrive upload ID
-	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Retrive upload ID</div>\n";
+	// 验证上传用户名
+	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>验证上传用户名</div>\n";
 
 	$page = geturl($domain, 80, '/api/get-fastest-server', 0, 0, 0, 0, $_GET['proxy'], $pauth);is_page($page);
 	$json = Get_Reply($page);

@@ -2,7 +2,7 @@
 </td></tr>
 <tr><td align=center>
 
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?
 			$ref='http://www.turboupload.com/home';
 			$page = geturl("www.turboupload.com", 80, "/home", "", 0, 0, 0, "");

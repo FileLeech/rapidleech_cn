@@ -10,7 +10,7 @@ if ($upload_acc['letitbit_net']['user'] && $upload_acc['letitbit_net']['pass']){
 	$_REQUEST['login'] = $upload_acc['letitbit_net']['user'];
 	$_REQUEST['password'] = $upload_acc['letitbit_net']['pass'];
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -19,8 +19,8 @@ else{
 <table border="0" style="width:270px;margin:auto;" cellspacing="0">
 <form method="POST">
 <input type="hidden" name="action" value="FORM" />
-<tr><td style="white-space:nowrap;">&nbsp;Email*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td style="white-space:nowrap;">&nbsp;Password*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;邮箱*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;密码*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
 <tr><td colspan="2" align="center"><input type="submit" value="Upload" /></tr>
 <tr><td colspan="2" align="center"><small>*You can set it as default in <b><?php echo $page_upload["letitbit.net_member"]; ?></b></small></tr>
 </form>
@@ -35,13 +35,13 @@ if ($continue_up)
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="login" style="width:100%;text-align:center;">Login to letitbit.net</div>
+<div id="login" style="width:100%;text-align:center;">登录到letitbit.net</div>
 <?php
 	if (empty($_REQUEST['login']) || empty($_REQUEST['password'])) html_error("Login failed: User/Password empty.", 0);
 	$page = SkipLoginC(strtolower($_REQUEST['login']), $_REQUEST['password']);
 ?>
 <script type="text/javascript">document.getElementById('login').style.display='none';</script>
-<div id="info" style="width:100%;text-align:center;">Retrive upload ID</div>
+<div id="info" style="width:100%;text-align:center;">验证上传用户名</div>
 <?php
 	if (!preg_match("@var\s+ACUPL_UPLOAD_SERVER\s*=\s*'([^\']+)'\s*;@i",$page, $up)) html_error('Error: Cannot find upload server.', 0);
 

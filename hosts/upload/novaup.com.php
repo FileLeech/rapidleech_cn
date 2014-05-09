@@ -10,7 +10,7 @@ if ($novaup_desc & $novaup_cat){
 	$_REQUEST['desc'] = $novaup_desc;
 	$_REQUEST['cat'] = $novaup_cat;
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -27,7 +27,7 @@ else{
   <option value="4">Videos</option>
   <option value="6">Games</option>
 </select></tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 </table>
 </form>
 <?php
@@ -41,7 +41,7 @@ if ($continue_up)
 </td></tr>
 <tr><td align=center>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 
 		$rand = mt_rand(1000000000000, 1999999999999);

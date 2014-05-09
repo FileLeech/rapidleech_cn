@@ -20,7 +20,7 @@ function processUpload( $mediafire_login, $mediafire_pass, $lfile, $lname )
 		$_REQUEST['my_login'] = $mediafire_login;
 		$_REQUEST['my_pass'] = $mediafire_pass;
 		$_REQUEST['action'] = "FORM";
-		echo "<b><center>Use Default login/pass.</center></b>\n";
+		echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 	}
 	
 	if ( $_REQUEST ['action'] == "FORM" )
@@ -38,9 +38,9 @@ function processUpload( $mediafire_login, $mediafire_pass, $lfile, $lname )
 				  <td colspan="4" align="center" height="25px" ><b> Enter Member Account </b> </td>
 				</tr>
 				<tr>
-					<td nowrap>&nbsp;Email*</td>
+					<td nowrap>&nbsp;邮箱*</td>
 					<td>&nbsp;<input name="my_login" value='' style="width: 160px;" />&nbsp;</td>
-					<td nowrap>&nbsp;Password*</td>
+					<td nowrap>&nbsp;密码*</td>
 					<td>&nbsp;<input type="password" name="my_pass" value='' style="width: 160px;" />&nbsp;</td>
 				</tr>
 				<tr>
@@ -64,12 +64,12 @@ function processUpload( $mediafire_login, $mediafire_pass, $lfile, $lname )
 		<table width="100%" align="center">
 			<tr>
 				<td align="center">
-				<div id="login" width="100%" align="center">Login to mediafire.com</div>
+				<div id="login" width="100%" align="center">登录到mediafire.com</div>
 	<?php
 		$cookies = login( $mediafire_com_login, $mediafire_com_pass );
 	?>
 		<script>document.getElementById('login').style.display='none';</script>
-		<div id="info" width="100%" align="center">Retrive upload ID</div>
+		<div id="info" width="100%" align="center">验证上传用户名</div>
 	<?php
 		
 		$matc = array();

@@ -10,7 +10,7 @@ if ($upload_acc['oron_com']['user'] && $upload_acc['oron_com']['pass']){
 	$_REQUEST['login'] = $upload_acc['oron_com']['user'];
 	$_REQUEST['password'] = $upload_acc['oron_com']['pass'];
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -20,7 +20,7 @@ else{
 <form method="POST">
 <input type="hidden" name="action" value="FORM" />
 <tr><td style="white-space:nowrap;">&nbsp;Login*<td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</tr>
-<tr><td style="white-space:nowrap;">&nbsp;Password*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
+<tr><td style="white-space:nowrap;">&nbsp;密码*<td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</tr>
 <tr><td colspan="2" align="center"><input type="submit" value="Upload" /></tr>
 <tr><td colspan="2" align="center"><small>*You can set it as default in <b><?php echo $page_upload["oron.com_member"]; ?></b></small></tr>
 </form>
@@ -35,7 +35,7 @@ if ($continue_up)
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="login" style="width:100%;text-align:center;">Login to oron.com</div>
+<div id="login" style="width:100%;text-align:center;">登录到oron.com</div>
 <?php
 	if (empty($_REQUEST['login']) || empty($_REQUEST['password'])) html_error("Login failed: User/Password empty.", 0);
 	$cookie = 'lang=english';
@@ -52,7 +52,7 @@ if ($continue_up)
 	$cookie = "$cookie; " . GetCookies($page);
 ?>
 <script type="text/javascript">document.getElementById('login').style.display='none';</script>
-<div id="info" style="width:100%;text-align:center;">Retrive upload ID</div>
+<div id="info" style="width:100%;text-align:center;">验证上传用户名</div>
 <?php
 	$page = geturl("oron.com", 80, "/", 'http://oron.com/login', $cookie, 0, 0, $_GET["proxy"], $pauth);is_page($page);
 	if (!preg_match('@action="((http://\w+\.oron\.com/)upload/(\d+))/?"@i',$page, $up)) html_error('Error: Cannot find upload server.', 0);

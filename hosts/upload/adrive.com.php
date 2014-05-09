@@ -27,7 +27,7 @@ if ($adrive_com_login & $adrive_com_pass){
 	$_REQUEST['my_login'] = $adrive_com_login;
 	$_REQUEST['my_pass'] = $adrive_com_pass;
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -36,9 +36,9 @@ else{
 <table border=0 style="width:270px;" cellspacing=0 align=center>
 <form method=post>
 <input type=hidden name=action value='FORM' />
-<tr><td nowrap>&nbsp;Email*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td nowrap>&nbsp;邮箱*<td>&nbsp;<input type=text name=my_login value='' style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=my_pass value='' style="width:160px;" />&nbsp;</tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["adrive.com"]; ?></b></small></tr>
 </table>
 </form>
@@ -53,7 +53,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to ADrive.com</div>
+<div id=login width=100% align=center>登录到ADrive.com</div>
 <?php 
 			$page = get_ssl_page("https://www.adrive.com/login/login", "email=".$_REQUEST['my_login']."&passwrd=".$_REQUEST['my_pass']."&forcelogout=1");
 			$cookies = GetCookies($page);
@@ -61,7 +61,7 @@ if ($continue_up)
 			$cookie = 'symfony='.$cook[1].'; '.'orig_ref=https://www.adrive.com/login';
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php 
 			$Url = parse_url("http://www.adrive.com/home/httpuploadfile?dir=%3E");
 			$page = geturl($Url["host"], $Url["port"] ? $Url["port"] : 80, $Url["path"].($Url["query"] ? "?".$Url["query"] : ""), 0, $cookie, 0, 0, $_GET["proxy"],$pauth);

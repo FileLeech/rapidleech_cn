@@ -11,7 +11,7 @@ if ($downupload_login & $downupload_pass){
     $_REQUEST['login'] = $downupload_login;
     $_REQUEST['password'] = $downupload_pass;
     $_REQUEST['action'] = "FORM";
-    echo "<b><center>Use Default login/pass.</center></b>\n";
+    echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -21,8 +21,8 @@ else{
 		<form method=post>
 			<input type=hidden name=action value='FORM' />
 			<tr><td nowrap>&nbsp;Login*<td>&nbsp;<input type=text name=login value='' style="width:160px;" />&nbsp;</tr>
-			<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
-			<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+			<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
+			<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 			<tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["downupload.com_member"]; ?></b></small></tr>
 		</table>
 	</form>
@@ -36,7 +36,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to downupload.com</div>
+<div id=login width=100% align=center>登录到downupload.com</div>
 <?php
 			$Url=parse_url("http://www.downupload.com/");
             $post['op'] = "login" ;
@@ -57,7 +57,7 @@ if ($continue_up)
             is_notpresent($page, 'HTTP/1.1 200 OK', 'Error logging in - Are your logins correct?');
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
     $ref='http://www.downupload.com/';
     $Url=parse_url($ref);

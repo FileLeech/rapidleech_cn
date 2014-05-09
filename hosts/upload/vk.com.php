@@ -61,7 +61,7 @@ if (empty($_REQUEST['code'])) {
 	$json = Get_Reply($page);
 	if (!empty($json['error']) && stripos($json['error'], 'REDIRECT_URI') === false) html_error("Auth Error: [{$json['error']}] ".(!empty($json['error_description'])?$json['error_description']:''));
 
-	// Retrive upload ID
+	// 验证上传用户名
 	echo "<script type='text/javascript'>document.getElementById('login').style.display='none';</script>\n<div id='info' width='100%' align='center'>Preparing Upload</div>\n";
 
 	sleep(1); // They have a limit of 3 Request/Second... Let's wait a second :D

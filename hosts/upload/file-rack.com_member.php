@@ -10,7 +10,7 @@ if ($filerack_login & $filerack_pass){
 	$_REQUEST['login'] = $filerack_login;
 	$_REQUEST['password'] = $filerack_pass;
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if ($_REQUEST['action'] == "FORM")
     $continue_up=true;
@@ -20,10 +20,10 @@ else{
 <form method=post>
 <input type=hidden name=action value='FORM' />
 <tr><td nowrap>&nbsp;Login*<td>&nbsp;<input type=text name=login value='' style="width:160px;" />&nbsp;</tr>
-<tr><td nowrap>&nbsp;Password*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
+<tr><td nowrap>&nbsp;密码*<td>&nbsp;<input type=password name=password value='' style="width:160px;" />&nbsp;</tr>
 <tr><td nowrap>&nbsp</td></tr>
 <tr><td nowrap>&nbsp;File description<td>&nbsp;<input type=text name=descript value='' style="width:160px;" />&nbsp;</tr>
-<tr><td colspan=2 align=center><input type=submit value='Upload' /></tr>
+<tr><td colspan=2 align=center><input type=submit value='上传' /></tr>
 <tr><td colspan=2 align=center><small>*You can set it as default in <b><?php echo $page_upload["file-rack.com"]; ?></b></small></tr>
 </table>
 </form>
@@ -37,7 +37,7 @@ if ($continue_up)
 <table width=600 align=center>
 </td></tr>
 <tr><td align=center>
-<div id=login width=100% align=center>Login to file-rack.com</div>
+<div id=login width=100% align=center>登录到file-rack.com</div>
 <?php
 			$post['op'] = "login" ;
 			$post['login'] = $_REQUEST['login'];
@@ -55,7 +55,7 @@ if ($continue_up)
 			is_notpresent($page, 'HTTP/1.1 200 OK', 'Error logging in - are your logins correct?');
 ?>
 <script>document.getElementById('login').style.display='none';</script>
-<div id=info width=100% align=center>Retrive upload ID</div>
+<div id=info width=100% align=center>验证上传用户名</div>
 <?php
 	$ref='http://www.file-rack.com/';
 	$Url=parse_url($ref.'upload.html');

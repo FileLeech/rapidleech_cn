@@ -12,7 +12,7 @@ if ($upload_acc['netkups_com']['user'] && $upload_acc['netkups_com']['pass']) {
 	$_REQUEST['login'] = $upload_acc['netkups_com']['user'];
 	$_REQUEST['password'] = $upload_acc['netkups_com']['pass'];
 	$_REQUEST['action'] = "FORM";
-	echo "<b><center>Use Default login/pass.</center></b>\n";
+	echo "<b><center>使用默认的用户名/密码。</center></b>\n";
 }
 if (!empty($_REQUEST['action']) && $_REQUEST['action'] == "FORM")
 	$continue_up=true;
@@ -21,8 +21,8 @@ else{
 <table border="0" style="width:270px;margin:auto;" cellspacing="0">
 <form method="POST">
 <input type="hidden" name="action" value="FORM" />
-<tr><td style="white-space:nowrap;">&nbsp;Username*</td><td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</td></tr>
-<tr><td style="white-space:nowrap;">&nbsp;Password*</td><td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</td></tr>
+<tr><td style="white-space:nowrap;">&nbsp;用户名*</td><td>&nbsp;<input type="text" name="login" value="" style="width:160px;" />&nbsp;</td></tr>
+<tr><td style="white-space:nowrap;">&nbsp;密码*</td><td>&nbsp;<input type="password" name="password" value="" style="width:160px;" />&nbsp;</td></tr>
 <tr><td colspan="2" align="center">(Let the login empty for anon upload)</td></tr>
 <tr><td colspan="2" align="center"><br /><input type="submit" value="Upload" /></td></tr>
 <tr><td colspan="2" align="center"><small>*You can set it as default in <b><?php echo basename(__FILE__); ?></b></small></td></tr>
@@ -38,7 +38,7 @@ if ($continue_up)
 <table style="width:600px;margin:auto;">
 </td></tr>
 <tr><td align="center">
-<div id="login" style="width:100%;text-align:center;">Login to netkups.com</div>
+<div id="login" style="width:100%;text-align:center;">登录到netkups.com</div>
 <?php
 	if (!empty($_REQUEST['login']) && !empty($_REQUEST['password'])) {
 		$post = array();
@@ -58,7 +58,7 @@ if ($continue_up)
 	}
 ?>
 <script type="text/javascript">document.getElementById('login').style.display='none';</script>
-<div id="info" style="width:100%;text-align:center;">Retrive upload ID</div>
+<div id="info" style="width:100%;text-align:center;">验证上传用户名</div>
 <?php
 	$page = geturl("netkups.com", 80, "/ajax.php?action=upload", 'http://netkups.com/', $cookie, 0, 0, $_GET["proxy"], $pauth);is_page($page);
 	if (stripos($page, "ERROR")) html_error('Error: '. htmlentities(substr($page, strpos($page, "\r\n\r\n") + 4)), 0);

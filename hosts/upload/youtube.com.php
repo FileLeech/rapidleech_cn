@@ -11,7 +11,7 @@ $upload_acc['youtube_com']['pass'] = ""; //Set your password
 
 $YT_Developer_Key = trim($YT_Developer_Key);
 if (empty($YT_Developer_Key)) html_error("Developer Key is empty, please set yours @ {$page_upload["youtube.com"]}.", 0);
-if (!preg_match("@\.(mp4|flv|mpe?g|mkv|wmv|mov|3gp|avi)$@i", $lname, $fext)) echo "<p style='color:red;text-align:center;font-weight:bold;'>This file format doesn't looks like a video file allowed by youtube.</p>\n";
+if (!preg_match("@\.(mp4|flv|mpe?g|mkv|wmv|mov|3gp|avi)$@i", $lname, $fext)) echo "<p style='color:red;text-align:center;font-weight:bold;'>该文件格式看起来不是视频文件，无法上传至Tyoutube。</p>\n";
 // Check for https support.
 $usecurl = $cantuse = false;
 if (!extension_loaded('openssl')) {
@@ -57,18 +57,18 @@ else {
 	echo "<table border='0' style='width:270px;' cellspacing='0' align='center'>
 	<form method='POST'>
 	<input type='hidden' name='action' value='FORM' />";
-	if (!$login) echo "<tr><td style='white-space:nowrap;'>&nbsp;YouTube or Google Login*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>&nbsp;Password*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
-	echo "<tr><td colspan='2' align='center'><br />Video options *<br /><br /></td></tr>
-	<tr><td style='white-space:nowrap;'>Title:</td><td>&nbsp;<input type='text' name='up_title' value='$lname' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>Description:</td><br /><td><textarea rows='5' name='up_description' style='width:160px;'>Uploaded with rapidleech.</textarea></td></tr>
-	<tr><td style='white-space:nowrap;'>Tags: </td><td>&nbsp;<input type='text' name='up_tags' value='Example tag, upload, rapidleech' style='width:160px;' /></td></tr>
-	<tr><td style='white-space:nowrap;'>Category:</td><td>&nbsp;<select name='up_category' style='width:160px;height:20px;'>\n";
+	if (!$login) echo "<tr><td style='white-space:nowrap;'>&nbsp;YouTube或Google帐号*</td><td>&nbsp;<input type='text' name='up_login' value='' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>&nbsp;密码*</td><td>&nbsp;<input type='password' name='up_pass' value='' style='width:160px;' /></td></tr>\n";
+	echo "<tr><td colspan='2' align='center'><br />视频选项 *<br /><br /></td></tr>
+	<tr><td style='white-space:nowrap;'>标题：</td><td>&nbsp;<input type='text' name='up_title' value='$lname' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>描述：</td><br /><td><textarea rows='5' name='up_description' style='width:160px;'>Uploaded with rapidleech.</textarea></td></tr>
+	<tr><td style='white-space:nowrap;'>标签： </td><td>&nbsp;<input type='text' name='up_tags' value='Example tag, upload, rapidleech' style='width:160px;' /></td></tr>
+	<tr><td style='white-space:nowrap;'>分类：</td><td>&nbsp;<select name='up_category' style='width:160px;height:20px;'>\n";
 	foreach($categories as $n => $v) echo "\t<option value='$n'>$v</option>\n";
 	echo "</select></td></tr>\n";
-	echo "<tr><td style='white-space:nowrap;'>Privacy: <br /><select name='up_access' style='width:8em;height:20px;'><option value='public'>Public</option><option value='unlisted'>Unlisted</option><option value='private'>Private</option></select></td><td style='white-space:nowrap;'><input type='checkbox' name='up_embed' value='no' />&nbsp; Make video not embeddable</td></tr>";
-	echo "<tr><td colspan='2' align='center'><br /><small>By clicking 'Upload', you certify that you own all rights to the content or that you are authorized by the owner to make the content publicly available on YouTube, and that it otherwise complies with the YouTube Terms of Service located at <a href='http://www.youtube.com/t/terms' target='_blank'>http://www.youtube.com/t/terms</a></small><br /><br /><input type='submit' value='Upload' /></td></tr>\n";
-	echo "<tr><td colspan='2' align='center'><small>*You can set it as default in <b>{$page_upload["youtube.com"]}</b></small></td></tr>\n";
+	echo "<tr><td style='white-space:nowrap;'>权限： <br /><select name='up_access' style='width:8em;height:20px;'><option value='public'>公开</option><option value='unlisted'>不在列表显示</option><option value='private'>私人</option></select></td><td style='white-space:nowrap;'><input type='checkbox' name='up_embed' value='no' />&nbsp; 使视频不可嵌入</td></tr>";
+	echo "<tr><td colspan='2' align='center'><br /><small>上传即表示您同意在使用 YouTube 时遵守其<a href='http://www.youtube.com/t/terms' target='_blank'>服务条款和社区准则</a>。<br>请确保不要侵犯他人的版权或隐私权</a></small><br /><br /><input type='submit' value='上传' /></td></tr>\n";
+	echo "<tr><td colspan='2' align='center'><small>*您可在<b>{$page_upload["youtube.com"]}中设置默认帐号</b></small></td></tr>\n";
 	echo "</table>\n</form>\n";
 	echo "<script type='text/javascript'>self.resizeTo(700,580);</script>\n"; //Resize upload window
 }
