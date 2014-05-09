@@ -325,7 +325,7 @@ if($list)
 <td><?php echo link_for_file($file["name"], FALSE, 'style="font-weight: bold; color: #000;"'); ?></td>
 <td><?php echo $file["size"]; ?></td>
 <td><?php echo isset($file["comment"]) ? str_replace("\\r\\n", "<br />", $file["comment"]) : ""; ?></td>
-<td><?php echo date("d.m.Y H:i:s", $file["date"]) ?></td>
+<td><?php echo date("Y年m月d日 H:i:s", $file["date"]) ?></td>
 </tr>
 <?php
     $filecount ++;
@@ -334,7 +334,7 @@ if($list)
 </tbody>
 <?php
   if (($total_files > 1) && ($total_size > 0)) {
-    $tmp = '<tbody><tr class="flisttblftr">'.$nn.'<td>&nbsp;</td>'.$nn.'<td>Total:</td>'.$nn.'<td>'.bytesToKbOrMbOrGb($total_size).'</td>'.$nn.'<td>&nbsp;</td>'.$nn.'<td>&nbsp;</td>'.$nn.'</tr></tbody>';
+    $tmp = '<tbody><tr class="flisttblftr">'.$nn.'<td>&nbsp;</td>'.$nn.'<td>合计</td>'.$nn.'<td>'.bytesToKbOrMbOrGb($total_size).'</td>'.$nn.'<td>&nbsp;</td>'.$nn.'<td>&nbsp;</td>'.$nn.'</tr></tbody>';
     echo $tmp;
     if ($options['flist_h_fixed']) {
       echo '</table><table id="table_filelist_f" cellpadding="3" cellspacing="1" class="filelist" align="left" style="position:absolute;left:0px;bottom:0px;">'.$tmp;
