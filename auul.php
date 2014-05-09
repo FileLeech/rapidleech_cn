@@ -175,7 +175,7 @@ unset($Path);
 </table>
 </div><br />
 <hr /><br />
-<input type="submit" name="submit" value="Upload" /> <?php echo lang(49); ?>: <input type="text" size="2" name="windows" value="4" /><br />
+<input type="submit" name="submit" value="<?php echo lang(286); ?>" /> <?php echo lang(49); ?>: <input type="text" size="2" name="windows" value="4" /><br />
 <?php echo lang(50); ?>: <input type="text" size="50" name="save_style" value="<?php echo lang(51); ?>" /><br />
 <a href="javascript:setCheckboxes(1);" class="chkmenu"><?php echo lang(52); ?></a> |
 <a href="javascript:setCheckboxes(0);" class="chkmenu"><?php echo lang(53); ?></a> |
