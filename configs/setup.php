@@ -31,7 +31,7 @@ header('Cache-Control: no-cache, must-revalidate');
 header('Pragma: no-cache');
 
 define('TEMPLATE_DIR', 'templates/plugmod/');
-//$options['default_language'] = "en";
+//$options['default_language'] = "zh-cn";
 require_once('classes/other.php');
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -265,13 +265,13 @@ if (isset($_POST['setup_save']) && $_POST['setup_save'] == 1) {
 	if (!@write_file(CONFIG_DIR."config.php", $opt, 1)) echo '<div class="div_error">It was not possible to write the configuration<br />Set permissions of "configs" folder to 0777 and try again</div>';
 	else {
 		if (is_file(CONFIG_DIR.'config_old.php')) { if (@!unlink(CONFIG_DIR.'config_old.php') && is_file(CONFIG_DIR.'config_old.php')) { '<div class="div_message">It was not possible to delete the old configuration.<br />Manually delete "configs/config_old.php"</div><br />'; } }
-		echo '<div class="div_message">设置已保存！ 点击 <a href="'.$PHP_SELF.'">这里</a> 开始使用rapidleech</div>';
+		echo '<div class="div_message">设置已保存！ 点击<a href="'.$PHP_SELF.'">这里</a>开始使用rapidleech</div>';
 	}
 } else {
 ?>
 <div class="div_setup">安装Rapidleech</div>
 
-<div class="div_message"><?php echo ($old_options ? 'Old' : 'Default'); ?> rapidleech设置已载入</div>
+<div class="div_message"><?php echo ($old_options ? '旧的' : '默认的'); ?>rapidleech设置已载入</div>
 
 <form method="post" enctype="multipart/form-data" name="setup_form" action="<?php echo $PHP_SELF; ?>">
 <table align="center" class="table_cat">
@@ -286,13 +286,13 @@ if (isset($_POST['setup_save']) && $_POST['setup_save'] == 1) {
 					<tr><td>允许用户修改下载目录</td><td><input type="checkbox" value="1" name="opt_download_dir_is_changeable" id="opt_download_dir_is_changeable" /></td></tr>
 					<tr><td>自动删除文件(分钟)</td>
 						<td><select size="1" name="opt_delete_delay" id="opt_delete_delay">
-							<option value="0">Disabled</option>
+							<option value="0">关闭</option>
 							<option value="3600">60</option>
 							<option value="7200">120</option>
 							<option value="10800">180</option>
 							<option value="14400">240</option>
 							<option value="18000">300</option>
-							<option value="other">Other</option>
+							<option value="other">其它</option>
 						</select></td>
 					</tr>
 					<tr><td>文件名前缀</td><td><input type="text" id="opt_rename_prefix" name="opt_rename_prefix" /></td></tr>

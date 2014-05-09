@@ -24,7 +24,7 @@ $default_options = array(
 'users' => array('test' => 'test'), # false - Authorization mode is off, enter the username and password in the given way
 //Presentation
 'template_used' => 'plugmod',
-'default_language' => 'en',
+'default_language' => 'zh-cn',
 'show_all' => true, # true - To show all files in the catalog, false to hide it
 'server_info' => true, # CPU, Memory & Time Info
 'ajax_refresh' => true, # Ajax Auto Refresh Server Info
