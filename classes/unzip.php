@@ -27,7 +27,7 @@ class dUnzip2{
 	
 	Function getList($stopOnFile=false){
 		if(sizeof($this->compressedList)){
-			$this->debugMsg(1, "Returning already loaded file list.");
+			$this->debugMsg(1, "返回已加载的文件列表。");
 			return $this->compressedList;
 		}
 		
@@ -35,16 +35,16 @@ class dUnzip2{
 		$fh = fopen($this->fileName, "r");
 		$this->fh = &$fh;
 		if(!$fh){
-			$this->debugMsg(2, "Failed to load file.");
+			$this->debugMsg(2, "无法加载文件。");
 			return false;
 		}
 		
-		$this->debugMsg(1, "Loading list from 'End of Central Dir' index list...");
+		$this->debugMsg(1, "载入'End of Central Dir'目录列表...");
 		if(!$this->_loadFileListByEOF($fh, $stopOnFile)){
-			$this->debugMsg(1, "Failed! Trying to load list looking for signatures...");
+			$this->debugMsg(1, "失败！尝试载入列表来寻找签名...");
 			if(!$this->_loadFileListBySignatures($fh, $stopOnFile)){
-				$this->debugMsg(1, "Failed! Could not find any valid header.");
-				$this->debugMsg(2, "ZIP File is corrupted or empty");
+				$this->debugMsg(1, "失败！无法找到任何有效的头文件。");
+				$this->debugMsg(2, "ZIP文件已损坏或为空");
 				return false;
 			}
 		}
@@ -98,7 +98,7 @@ class dUnzip2{
 			$kkk = 0;
 			if(sizeof($this->endOfCentral)){
 				echo "<table border='0' style='font: 11px Verdana' style='border: 1px solid #000'>";
-				echo "<tr style='background: #DAA'><td colspan='2'>End of file</td></tr>";
+				echo "<tr style='background: #DAA'><td colspan='2'>文件末尾</td></tr>";
 				foreach($this->endOfCentral as $field=>$value){
 					echo "<tr>";
 					echo "<td style='background: #FCC'>$field</td>";
@@ -125,21 +125,21 @@ class dUnzip2{
 	
 	Function unzip($compressedFileName, $targetFileName=false, $applyChmod=0777){
 		if(!sizeof($this->compressedList)){
-			$this->debugMsg(1, "Trying to unzip before loading file list... Loading it!");
+			$this->debugMsg(1, "尝试解压zip之前载入文件列表... 加载中！");
 			$this->getList(false, $compressedFileName);
 		}
 		
 		$fdetails = &$this->compressedList[$compressedFileName];
 		if(!isset($this->compressedList[$compressedFileName])){
-			$this->debugMsg(2, "File '<b>$compressedFileName</b>' is not compressed in the zip.");
+			$this->debugMsg(2, "文件'<b>$compressedFileName</b>'在zip中未被压缩。");
 			return false;
 		}
 		if(substr($compressedFileName, -1) == "/"){
-			$this->debugMsg(2, "Trying to unzip a folder name '<b>$compressedFileName</b>'.");
+			$this->debugMsg(2, "尝试解压缩文件夹'<b>$compressedFileName</b>'。");
 			return false;
 		}
 		if(!$fdetails['uncompressed_size']){
-			$this->debugMsg(1, "File '<b>$compressedFileName</b>' is empty.");
+			$this->debugMsg(1, "文件'<b>$compressedFileName</b>'是空的。");
 			return $targetFileName?
 				file_put_contents($targetFileName, ""):
 				"";
@@ -175,7 +175,7 @@ class dUnzip2{
 				foreach($folders as $folder){
 					$str = $str?"$str/$folder":$folder;
 					if(!is_dir("$targetDir/$str")){
-						$this->debugMsg(1, "Creating folder: $targetDir/$str");
+						$this->debugMsg(1, "创建文件夹: $targetDir/$str");
 						mkdir("$targetDir/$str");
 						if($applyChmod)
 							chmod("$targetDir/$str", $applyChmod);
@@ -208,19 +208,19 @@ class dUnzip2{
 					file_put_contents($targetFileName, $content):
 					$content;
 			case 1:
-				$this->debugMsg(2, "Shrunk mode is not supported... yet?");
+				$this->debugMsg(2, "不支持Shrunk模式...吗？");
 				return false;
 			case 2:
 			case 3:
 			case 4:
 			case 5:
-				$this->debugMsg(2, "Compression factor ".($mode-1)." is not supported... yet?");
+				$this->debugMsg(2, "压缩参数 ".($mode-1)." 不支持... 吗？");
 				return false;
 			case 6:
-				$this->debugMsg(2, "Implode is not supported... yet?");
+				$this->debugMsg(2, "不支持Implode... 吗？");
 				return false;
 			case 7:
-				$this->debugMsg(2, "Tokenizing compression algorithm is not supported... yet?");
+				$this->debugMsg(2, "不支持标记化的压缩算法... 吗?");
 				return false;
 			case 8:
 				// Deflate
@@ -228,10 +228,10 @@ class dUnzip2{
 					file_put_contents($targetFileName, gzinflate($content, $uncompressedSize)):
 					gzinflate($content, $uncompressedSize);
 			case 9:
-				$this->debugMsg(2, "Enhanced Deflating is not supported... yet?");
+				$this->debugMsg(2, "不支持Enhanced Deflating... 吗？");
 				return false;
 			case 10:
-				$this->debugMsg(2, "PKWARE Date Compression Library Impoloding is not supported... yet?");
+				$this->debugMsg(2, "不支持PKWARE Date Compression Library Impoloding... 吗？");
 				return false;
            case 12:
                // Bzip2
@@ -239,10 +239,10 @@ class dUnzip2{
                    file_put_contents($targetFileName, bzdecompress($content)):
                    bzdecompress($content);
 			case 18:
-				$this->debugMsg(2, "IBM TERSE is not supported... yet?");
+				$this->debugMsg(2, "不支持IBM TERSE... 吗？");
 				return false;
 			default:
-				$this->debugMsg(2, "Unknown uncompress method: $mode");
+				$this->debugMsg(2, "未知解压方法: $mode");
 				return false;
 		}
 	}
@@ -371,12 +371,12 @@ class dUnzip2{
 		for(;;){
 			$details = $this->_getFileHeaderInformation($fh);
 			if(!$details){
-				$this->debugMsg(1, "Invalid signature. Trying to verify if is old style Data Descriptor...");
+				$this->debugMsg(1, "无效的签名。尝试验证是否为老式的数据描述符...");
 				fseek($fh, 12 - 4, SEEK_CUR); // 12: Data descriptor - 4: Signature (that will be read again)
 				$details = $this->_getFileHeaderInformation($fh);
 			}
 			if(!$details){
-				$this->debugMsg(1, "Still invalid signature. Probably reached the end of the file.");
+				$this->debugMsg(1, "仍然为无效的签名。可能已到达文件结尾。");
 				break;
 			}
 			$filename = $details['file_name'];

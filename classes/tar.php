@@ -141,8 +141,8 @@ class Archive_Tar extends PEAR
                 $this->_compress = true;
                 $this->_compress_type = 'bz2';
             } else {
-                $this->_error("Unsupported compression type '$p_compress'\n".
-                    "Supported types are 'gz' and 'bz2'.\n");
+                $this->_error("不支持的压缩类型 '$p_compress'\n".
+                    "只支持 'gz' 和 'bz2'.\n");
                 return false;
             }
         }
@@ -157,9 +157,9 @@ class Archive_Tar extends PEAR
                 PEAR::loadExtension($extname);
             }
             if (!extension_loaded($extname)) {
-                $this->_error("The extension '$extname' couldn't be found.\n".
-                    "Please make sure your version of PHP was built ".
-                    "with '$extname' support.\n");
+                $this->_error("扩展'$extname'未找到。\n".
+                    "请确认您的PHP版本支持".
+                    "'$extname'。\n");
                 return false;
             }
         }
@@ -301,7 +301,7 @@ class Archive_Tar extends PEAR
                 $v_list = explode($this->_separator, $p_filelist);
             else {
                 $this->_cleanFile();
-                $this->_error('Invalid file list');
+                $this->_error('无效的文件列表');
                 return false;
             }
 
@@ -372,7 +372,7 @@ class Archive_Tar extends PEAR
             elseif (is_string($p_filelist))
                 $v_list = explode($this->_separator, $p_filelist);
             else {
-                $this->_error('Invalid file list');
+                $this->_error('无效的文件列表');
                 return false;
             }
 
@@ -521,7 +521,7 @@ class Archive_Tar extends PEAR
         elseif (is_string($p_filelist))
             $v_list = explode($this->_separator, $p_filelist);
         else {
-            $this->_error('Invalid string list');
+            $this->_error('无效的字符串列表');
             return false;
         }
 
@@ -577,7 +577,7 @@ class Archive_Tar extends PEAR
                 break;
 
                 default :
-                    $this->_error('Unknow attribute code '.$v_att_list[$i].'');
+                    $this->_error('未知参数 '.$v_att_list[$i].'');
                     return false;
             }
 
@@ -634,11 +634,11 @@ class Archive_Tar extends PEAR
         else if ($this->_compress_type == 'none')
             $this->_file = @fopen($this->_tarname, "wb");
         else
-            $this->_error('Unknown or missing compression type ('
+            $this->_error('未知或丢失压缩类型 ('
 			              .$this->_compress_type.')');
 
         if ($this->_file == 0) {
-            $this->_error('Unable to open in write mode \''
+            $this->_error('无法在写入模式打开 \''
 			              .$this->_tarname.'\'');
             return false;
         }
@@ -656,13 +656,13 @@ class Archive_Tar extends PEAR
           if ($this->_temp_tarname == '') {
               $this->_temp_tarname = uniqid('tar').'.tmp';
               if (!$v_file_from = @fopen($this->_tarname, 'rb')) {
-                $this->_error('Unable to open in read mode \''
+                $this->_error('无法在读取模式打开 \''
 				              .$this->_tarname.'\'');
                 $this->_temp_tarname = '';
                 return false;
               }
               if (!$v_file_to = @fopen($this->_temp_tarname, 'wb')) {
-                $this->_error('Unable to open in write mode \''
+                $this->_error('无法在写入模式打开 \''
 				              .$this->_temp_tarname.'\'');
                 $this->_temp_tarname = '';
                 return false;
@@ -687,11 +687,11 @@ class Archive_Tar extends PEAR
         else if ($this->_compress_type == 'none')
             $this->_file = @fopen($v_filename, "rb");
         else
-            $this->_error('Unknown or missing compression type ('
+            $this->_error('未知或丢失压缩类型 ('
 			              .$this->_compress_type.')');
 
         if ($this->_file == 0) {
-            $this->_error('Unable to open in read mode \''.$v_filename.'\'');
+            $this->_error('无法在读取模式打开 \''.$v_filename.'\'');
             return false;
         }
 
@@ -705,17 +705,17 @@ class Archive_Tar extends PEAR
         if ($this->_compress_type == 'gz')
             $this->_file = @gzopen($this->_tarname, "r+b");
         else if ($this->_compress_type == 'bz2') {
-            $this->_error('Unable to open bz2 in read/write mode \''
+            $this->_error('无法在读写模式打开bz2 \''
 			              .$this->_tarname.'\' (limitation of bz2 extension)');
             return false;
         } else if ($this->_compress_type == 'none')
             $this->_file = @fopen($this->_tarname, "r+b");
         else
-            $this->_error('Unknown or missing compression type ('
+            $this->_error('未知或丢失压缩类型 ('
 			              .$this->_compress_type.')');
 
         if ($this->_file == 0) {
-            $this->_error('Unable to open in read/write mode \''
+            $this->_error('无法在读写模式打开 \''
 			              .$this->_tarname.'\'');
             return false;
         }
@@ -736,7 +736,7 @@ class Archive_Tar extends PEAR
             else if ($this->_compress_type == 'none')
                 @fclose($this->_file);
             else
-                $this->_error('Unknown or missing compression type ('
+                $this->_error('未知或丢失压缩类型 ('
 				              .$this->_compress_type.')');
 
             $this->_file = 0;
@@ -785,7 +785,7 @@ class Archive_Tar extends PEAR
               else if ($this->_compress_type == 'none')
                   @fputs($this->_file, $p_binary_data);
               else
-                  $this->_error('Unknown or missing compression type ('
+                  $this->_error('未知或丢失压缩类型 ('
 				                .$this->_compress_type.')');
           } else {
               if ($this->_compress_type == 'gz')
@@ -795,7 +795,7 @@ class Archive_Tar extends PEAR
               else if ($this->_compress_type == 'none')
                   @fputs($this->_file, $p_binary_data, $p_len);
               else
-                  $this->_error('Unknown or missing compression type ('
+                  $this->_error('未知或丢失压缩类型 ('
 				                .$this->_compress_type.')');
 
           }
@@ -816,7 +816,7 @@ class Archive_Tar extends PEAR
           else if ($this->_compress_type == 'none')
               $v_block = @fread($this->_file, 512);
           else
-              $this->_error('Unknown or missing compression type ('
+              $this->_error('未知或丢失压缩类型 ('
 			                .$this->_compress_type.')');
       }
       return $v_block;
@@ -840,7 +840,7 @@ class Archive_Tar extends PEAR
           } else if ($this->_compress_type == 'none')
               @fseek($this->_file, ftell($this->_file)+($p_len*512));
           else
-              $this->_error('Unknown or missing compression type ('
+              $this->_error('未知或丢失压缩类型 ('
 			                .$this->_compress_type.')');
 
       }
@@ -871,7 +871,7 @@ class Archive_Tar extends PEAR
       $p_remove_dir = $this->_translateWinPath($p_remove_dir, false);
 
       if (!$this->_file) {
-          $this->_error('Invalid file descriptor');
+          $this->_error('无效的文件描述符');
           return false;
       }
 
@@ -891,7 +891,7 @@ class Archive_Tar extends PEAR
             continue;
 
         if (!file_exists($v_filename)) {
-            $this->_warning("File '$v_filename' does not exist");
+            $this->_warning("文件'$v_filename'不存在");
             continue;
         }
 
@@ -901,7 +901,7 @@ class Archive_Tar extends PEAR
 
         if (@is_dir($v_filename) && !@is_link($v_filename)) {
             if (!($p_hdir = opendir($v_filename))) {
-                $this->_warning("Directory '$v_filename' can not be read");
+                $this->_warning("目录'$v_filename'无法读取");
                 continue;
             }
             while (false !== ($p_hitem = readdir($p_hdir))) {
@@ -931,12 +931,12 @@ class Archive_Tar extends PEAR
     function _addFile($p_filename, &$p_header, $p_add_dir, $p_remove_dir)
     {
       if (!$this->_file) {
-          $this->_error('Invalid file descriptor');
+          $this->_error('无效的文件描述符');
           return false;
       }
 
       if ($p_filename == '') {
-          $this->_error('Invalid file name');
+          $this->_error('无效的文件名称');
           return false;
       }
 
@@ -965,8 +965,8 @@ class Archive_Tar extends PEAR
 
       if ($this->_isArchive($p_filename)) {
           if (($v_file = @fopen($p_filename, "rb")) == 0) {
-              $this->_warning("Unable to open file '".$p_filename
-			                  ."' in binary read mode");
+              $this->_warning("无法以二进制读取模式打开'".$p_filename
+			                  ."'");
               return true;
           }
 
@@ -994,12 +994,12 @@ class Archive_Tar extends PEAR
     function _addString($p_filename, $p_string)
     {
       if (!$this->_file) {
-          $this->_error('Invalid file descriptor');
+          $this->_error('无效的文件描述符');
           return false;
       }
 
       if ($p_filename == '') {
-          $this->_error('Invalid file name');
+          $this->_error('无效的文件名称');
           return false;
       }
 
@@ -1251,7 +1251,7 @@ class Archive_Tar extends PEAR
 
         if (strlen($v_binary_data) != 512) {
             $v_header['filename'] = '';
-            $this->_error('Invalid block size : '.strlen($v_binary_data));
+            $this->_error('无效的块大小 : '.strlen($v_binary_data));
             return false;
         }
 
@@ -1284,7 +1284,7 @@ class Archive_Tar extends PEAR
             if (($v_checksum == 256) && ($v_header['checksum'] == 0))
                 return true;
 
-            $this->_error('Invalid checksum for file "'.$v_data['filename']
+            $this->_error('检验文件无效： "'.$v_data['filename']
 			              .'" : '.$v_checksum.' calculated, '
 						  .$v_header['checksum'].' expected');
             return false;
@@ -1293,8 +1293,8 @@ class Archive_Tar extends PEAR
         // ----- Extract the properties
         $v_header['filename'] = trim($v_data['filename']);
         if ($this->_maliciousFilename($v_header['filename'])) {
-            $this->_error('Malicious .tar detected, file "' . $v_header['filename'] .
-                '" will not install in desired directory tree');
+            $this->_error('已检测到恶意.tar，文件 "' . $v_header['filename'] .
+                '" 将不会安装到期望的目录树');
             return false;
         }
         $v_header['mode'] = OctDec(trim($v_data['mode']));
@@ -1363,8 +1363,8 @@ class Archive_Tar extends PEAR
       $v_filename = trim($v_filename);
       $v_header['filename'] = $v_filename;
         if ($this->_maliciousFilename($v_filename)) {
-            $this->_error('Malicious .tar detected, file "' . $v_filename .
-                '" will not install in desired directory tree');
+            $this->_error('已检测到恶意.tar，文件 "' . $v_filename .
+                '" 将不会安装到期望的目录树');
             return false;
       }
 
@@ -1400,7 +1400,7 @@ class Archive_Tar extends PEAR
 
           if ($v_header['filename'] == $p_filename) {
               if ($v_header['typeflag'] == "5") {
-                  $this->_error('Unable to extract in string a directory '
+                  $this->_error('无法解压字符串在目录 '
 				                .'entry {'.$v_header['filename'].'}');
                   return NULL;
               } else {
@@ -1459,7 +1459,7 @@ class Archive_Tar extends PEAR
           $v_listing = TRUE;
       break;
       default :
-        $this->_error('Invalid extract mode ('.$p_mode.')');
+        $this->_error('无效的解压模式 ('.$p_mode.')');
         return false;
     }
 
@@ -1535,13 +1535,13 @@ class Archive_Tar extends PEAR
           }
           if (   ($this->_isArchive($v_header['filename']))
 		      && ($v_header['typeflag'] == "5")) {
-            $this->_error('Directory '.$v_header['filename']
-			              .' already exists as a file');
+            $this->_error('目录 '.$v_header['filename']
+			              .' 已存在文件');
             return false;
           }
           if (!is_writeable($v_header['filename'])) {
-            $this->_error('File '.$v_header['filename']
-			              .' already exists and is write protected');
+            $this->_error('文件 '.$v_header['filename']
+			              .' 已存在并已写入保护');
             return false;
           }
           if (filemtime($v_header['filename']) > $v_header['mtime']) {
@@ -1554,7 +1554,7 @@ class Archive_Tar extends PEAR
 		         = $this->_dirCheck(($v_header['typeflag'] == "5"
 				                    ?$v_header['filename']
 									:dirname($v_header['filename'])))) != 1) {
-            $this->_error('Unable to create path for '.$v_header['filename']);
+            $this->_error('无法创建目录： '.$v_header['filename']);
             return false;
         }
 
@@ -1562,7 +1562,7 @@ class Archive_Tar extends PEAR
           if ($v_header['typeflag'] == "5") {
             if (!@file_exists($v_header['filename'])) {
                 if (!@mkdir($v_header['filename'], 0777)) {
-                    $this->_error('Unable to create directory {'
+                    $this->_error('无法创建目录 {'
 					              .$v_header['filename'].'}');
                     return false;
                 }
@@ -1572,14 +1572,14 @@ class Archive_Tar extends PEAR
                   @unlink($v_header['filename']);
               }
               if (!@symlink($v_header['link'], $v_header['filename'])) {
-                  $this->_error('Unable to extract symbolic link {'
+                  $this->_error('无法解压符号链接 {'
                                 .$v_header['filename'].'}');
                   return false;
               }
           } else {
               if (($v_dest_file = @fopen($v_header['filename'], "wb")) == 0) {
-                  $this->_error('Error while opening {'.$v_header['filename']
-				                .'} in write binary mode');
+                  $this->_error('以二进制模式写入 {'.$v_header['filename']
+				                .'} 时发生错误');
                   return false;
               } else {
                   $n = floor($v_header['size']/512);
@@ -1606,11 +1606,11 @@ class Archive_Tar extends PEAR
           // ----- Check the file size
           clearstatcache();
           if (filesize($v_header['filename']) != $v_header['size']) {
-              $this->_error('Extracted file '.$v_header['filename']
-			                .' does not have the correct file size \''
+              $this->_error('已解压出的文件 '.$v_header['filename']
+			                .' 不具有正确的文件大小 \''
 							.filesize($v_header['filename'])
 							.'\' ('.$v_header['size']
-							.' expected). Archive may be corrupted.');
+							.' expected). 压缩文件可能已损坏。');
               return false;
           }
           }
@@ -1657,9 +1657,9 @@ class Archive_Tar extends PEAR
             $this->_close();
 
             if (!@rename($this->_tarname, $this->_tarname.".tmp")) {
-                $this->_error('Error while renaming \''.$this->_tarname
-				              .'\' to temporary file \''.$this->_tarname
-							  .'.tmp\'');
+                $this->_error('重命名 \''.$this->_tarname
+				              .'\' 到临时文件 \''.$this->_tarname
+							  .'.tmp\'''时发生错误');
                 return false;
             }
 
@@ -1669,8 +1669,8 @@ class Archive_Tar extends PEAR
                 $v_temp_tar = @bzopen($this->_tarname.".tmp", "r");
 
             if ($v_temp_tar == 0) {
-                $this->_error('Unable to open file \''.$this->_tarname
-				              .'.tmp\' in binary read mode');
+                $this->_error('无法以二进制读取模式打开文件 \''.$this->_tarname
+				              .'.tmp\' ');
                 @rename($this->_tarname.".tmp", $this->_tarname);
                 return false;
             }
@@ -1707,8 +1707,8 @@ class Archive_Tar extends PEAR
             }
 
             if (!@unlink($this->_tarname.".tmp")) {
-                $this->_error('Error while deleting temporary file \''
-				              .$this->_tarname.'.tmp\'');
+                $this->_error('删除临时文件 \''
+				              .$this->_tarname.'.tmp\'''时发生错误');
             }
 
         } else {
@@ -1775,7 +1775,7 @@ class Archive_Tar extends PEAR
              return false;
 
         if (!@mkdir($p_dir, 0777)) {
-            $this->_error("Unable to create directory '$p_dir'");
+            $this->_error("无法创建目录 '$p_dir'");
             return false;
         }
 

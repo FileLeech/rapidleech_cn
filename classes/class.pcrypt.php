@@ -5,7 +5,7 @@
 // | Brazilian Organization                                               |
 // +----------------------------------------------------------------------+
 // | Viva ao Linux!                                                       |
-// | Porque n�s amamos a liberdade!                                       |
+// | Porque n髎 amamos a liberdade!                                       |
 // +----------------------------------------------------------------------+
 // | Class Perfect Crypt                                                  |
 // | Created By Igor Ribeiro de Assis                                     |
@@ -103,7 +103,7 @@ class pcrypt
         // Load cipher_class
         if (!class_exists("pcrypt_".$cipher))
         {
-            $this->error("Class pcrypt_".$cipher." doesn't exists");
+            $this->error("类 pcrypt_".$cipher." 不存在");
         }
         
         $class  = "pcrypt_".$cipher;
@@ -144,7 +144,7 @@ class pcrypt
             break;
 
         default:
-            $this->error("Invalid mode ".$this->blockmode);
+            $this->error("无效的模式 ".$this->blockmode);
         }
         
         return $cipher;
@@ -163,7 +163,7 @@ class pcrypt
     {
         if (empty($cipher))
         {
-            $this->error("Invalid Cipher Text");
+            $this->error("无效的密文");
         }
         
         // Decrypt with the correct mode        
@@ -177,7 +177,7 @@ class pcrypt
             break;
 
         default:
-            $this->error("Invalid mode ".$this->blockmode);
+            $this->error("无效的模式 ".$this->blockmode);
         }
         
         return $plain;

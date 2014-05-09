@@ -233,12 +233,12 @@ class ftp_base {
 
 	function SetType($mode=FTP_AUTOASCII) {
 		if (!in_array($mode, $this->AuthorizedTransferMode)) {
-			$this->SendMSG('Wrong type');
+			$this->SendMSG('错误类型');
 			return FALSE;
 		}
 		$this->_type = $mode;
 		$this->_data_prepare($mode);
-		$this->SendMSG('Transfer type: ' . ($this->_type == FTP_BINARY ? 'binary' : ($this->_type == FTP_ASCII ? 'ASCII' : 'auto ASCII') ));
+		$this->SendMSG('传输类型： ' . ($this->_type == FTP_BINARY ? 'binary' : ($this->_type == FTP_ASCII ? 'ASCII' : 'auto ASCII') ));
 		return TRUE;
 	}
 
@@ -246,18 +246,18 @@ class ftp_base {
 		if (is_null($pasv)) $this->_passive = !$this->_passive;
 		else $this->_passive = $pasv;
 		if (!$this->_port_available and !$this->_passive) {
-			$this->SendMSG('Only passive connections available!');
+			$this->SendMSG('只有被动连接可用！');
 			$this->_passive = TRUE;
 			return FALSE;
 		}
-		$this->SendMSG('Passive mode ' . ($this->_passive ? 'on' : 'off'));
+		$this->SendMSG('被动模式 ' . ($this->_passive ? 'on' : 'off'));
 		return TRUE;
 	}
 
 	function SetServer($host, $port=21, $reconnect=true) {
 		if (!is_long($port)) {
 			$this->verbose = true;
-			$this->SendMSG('Incorrect port syntax');
+			$this->SendMSG('不正确的端口');
 			return FALSE;
 		} else {
 			$ip = @gethostbyname($host);
@@ -265,7 +265,7 @@ class ftp_base {
 			if (!$ip) $ip = $host;
 			if (!$dns) $dns = $host;
 			if (ip2long($ip) === -1) {
-				$this->SendMSG("Wrong host name/address \"$host\"");
+				$this->SendMSG("错误的主机名称/地址 \"$host\"");
 				return FALSE;
 			}
 			$this->_host = $ip;
@@ -273,10 +273,10 @@ class ftp_base {
 			$this->_port = $port;
 			$this->_dataport = $port - 1;
 		}
-		$this->SendMSG('Host "' . $this->_fullhost . '(' . $this->_host . '):' . $this->_port . '"');
+		$this->SendMSG('主机 "' . $this->_fullhost . '(' . $this->_host . '):' . $this->_port . '"');
 		if ($reconnect) {
 			if ($this->_connected) {
-				$this->SendMSG('Reconnecting');
+				$this->SendMSG('重新连接');
 				if (!$this->quit(FTP_FORCE)) return FALSE;
 				if (!$this->connect()) return FALSE;
 			}
@@ -293,18 +293,18 @@ class ftp_base {
 
 	function SetTimeout($timeout=30) {
 		$this->_timeout = $timeout;
-		$this->SendMSG('Timeout ' . $this->_timeout);
+		$this->SendMSG('超时 ' . $this->_timeout);
 		if ($this->_connected) if (!$this->_settimeout($this->_ftp_control_sock)) return FALSE;
 		return TRUE;
 	}
 
 	function connect() {
-		$this->SendMsg('Local OS : ' . $this->OS_FullName[$this->OS_local]);
+		$this->SendMsg('本地操作系统： ' . $this->OS_FullName[$this->OS_local]);
 		if (!($this->_ftp_control_sock = $this->_connect($this->_host, $this->_port))) {
-			$this->SendMSG('Error : Cannot connect to remote host "' . $this->_fullhost . ' :' . $this->_port . '"');
+			$this->SendMSG('错误：无法连接到远程主机 "' . $this->_fullhost . ' :' . $this->_port . '"');
 			return FALSE;
 		}
-		$this->SendMSG('Connected to remote host "' . $this->_fullhost . ':' . $this->_port . '". Waiting for greeting.');
+		$this->SendMSG('连接到远程主机 "' . $this->_fullhost . ':' . $this->_port . '"。等待问候语。');
 		do {
 			if (!$this->_readmsg()) return FALSE;
 			if (!$this->_checkCode()) return FALSE;
@@ -319,7 +319,7 @@ class ftp_base {
 			if (!$this->_exec('QUIT') and !$force) return FALSE;
 			if (!$this->_checkCode() and !$force) return FALSE;
 			$this->_ready = false;
-			$this->SendMSG('Session finished');
+			$this->SendMSG('会话结束');
 		}
 		$this->_quit();
 		return TRUE;
@@ -340,9 +340,9 @@ class ftp_base {
 			if (!$this->_exec((($this->_code == 331) ? 'PASS ' : 'ACCT ') . $this->_password, 'login')) return FALSE;
 			if (!$this->_checkCode()) return FALSE;
 		}
-		$this->SendMSG('Authentication succeeded');
+		$this->SendMSG('验证成功');
 		$this->_can_restore = $this->restore(100);
-		$this->SendMSG('This server can' . ($this->_can_restore ? '' : '\'t') . ' resume broken uploads/downloads');
+		$this->SendMSG('此服务器可以' . ($this->_can_restore ? '' : '\'t') . '恢复中断的上传/下载');
 		return TRUE;
 	}
 
@@ -447,26 +447,26 @@ class ftp_base {
 
 	function is_exists($pathname) {
 		if (!($remote_list = $this->nlist('-a', dirname($pathname)))) {
-			$this->SendMSG('Error : Cannot get remote file list');
+			$this->SendMSG('错误：无法获取远程文件列表');
 			return -1;
 		}
 		reset($remote_list);
 		while (list(, $value) = each($remote_list)) {
 			if ($value == basename($pathname)) {
-				$this->SendMSG("Remote file $pathname exists");
+				$this->SendMSG("远程文件 $pathname 存在");
 				return TRUE;
 			}
 		}
-		$this->SendMSG("Remote file $pathname does not exist");
+		$this->SendMSG("远程文件 $pathname 不存在");
 		return FALSE;
 	}
 
 	function get($remotefile, $localfile=NULL) {
 		if (is_null($localfile)) $localfile = $remotefile;
-		if (@file_exists($localfile)) $this->SendMSG('Warning: local file will be overwritten');
+		if (@file_exists($localfile)) $this->SendMSG('警告：本地文件将被覆盖');
 		$fp = @fopen($localfile, 'wb');
 		if (!$fp) {
-			$this->PushError('get', "can't open local file", 'Cannot create "' . $localfile . '"');
+			$this->PushError('get', "无法打开本地文件", '无法创建 "' . $localfile . '"');
 			return FALSE;
 		}
 		$pi = pathinfo($remotefile);
@@ -520,12 +520,12 @@ class ftp_base {
 	function put($localfile, $remotefile=NULL) {
 		if (is_null($remotefile)) $remotefile = $localfile;
 		if (!@file_exists($localfile)) {
-			$this->PushError('put', "can't open local file", 'No such file or directory "' . $localfile . '"');
+			$this->PushError('put', "无法打开本地文件", '没有此文件或目录 "' . $localfile . '"');
 			return FALSE;
 		}
 		$fp = @fopen($localfile, 'rb');
 		if (!$fp) {
-			$this->PushError('put', "can't open local file", 'Cannot read file "' . $localfile . '"');
+			$this->PushError('put', "无法打开本地文件", '无法读取文件 "' . $localfile . '"');
 			return FALSE;
 		}
 		$pi = pathinfo($localfile);
@@ -637,7 +637,7 @@ class ftp extends ftp_base {
 		$this->SendMSG('Creating socket');
 		$sock = @fsockopen($host, $port, $errno, $errstr, $this->_timeout);
 		if (!$sock) {
-			$this->PushError('_connect', 'socket connect failed', $errstr . " (" . $errno . ")");
+			$this->PushError('_connect', 'socket连接失败', $errstr . " (" . $errno . ")");
 			return FALSE;
 		}
 		$this->_connected = true;
@@ -646,7 +646,7 @@ class ftp extends ftp_base {
 
 	function _readmsg($fnction='_readmsg') {
 		if (!$this->_connected) {
-			$this->PushError($fnction, 'Connect first');
+			$this->PushError($fnction, '首先连接');
 			return FALSE;
 		}
 		$result = true;
@@ -657,7 +657,7 @@ class ftp extends ftp_base {
 			$tmp = @fgets($this->_ftp_control_sock, 512);
 			if ($tmp === false) {
 				$go = $result = false;
-				$this->PushError($fnction, 'Read failed');
+				$this->PushError($fnction, '读取失败');
 			} else {
 				$this->_message.=$tmp;
 //for($i=0; $i<strlen($this->_message); $i++)
@@ -673,13 +673,13 @@ class ftp extends ftp_base {
 
 	function _exec($cmd, $fnction='_exec') {
 		if (!$this->_ready) {
-			$this->PushError($fnction, 'Connect first');
+			$this->PushError($fnction, '首先连接');
 			return FALSE;
 		}
 		if ($this->LocalEcho) echo 'PUT > ', $cmd, CRLF;
 		$status = @fputs($this->_ftp_control_sock, $cmd . CRLF);
 		if ($status === false) {
-			$this->PushError($fnction, 'socket write failed');
+			$this->PushError($fnction, 'socket写入失败');
 			return FALSE;
 		}
 		$this->_lastaction = time();
@@ -708,12 +708,12 @@ class ftp extends ftp_base {
 			$this->SendMSG('Connecting to ' . $this->_datahost . ':' . $this->_dataport);
 			$this->_ftp_data_sock = @fsockopen($this->_datahost, $this->_dataport, $errno, $errstr, $this->_timeout);
 			if (!$this->_ftp_data_sock) {
-				$this->PushError('_data_prepare', 'fsockopen fails', "$errstr ($errno)");
+				$this->PushError('_data_prepare', 'fsockopen失败', "$errstr ($errno)");
 				$this->_data_close();
 				return FALSE;
 			} else $this->_ftp_data_sock;
 		} else {
-			$this->SendMSG('Only passive connections available!');
+			$this->SendMSG('只能使用被动连接！');
 			return FALSE;
 		}
 		return TRUE;
@@ -724,7 +724,7 @@ class ftp extends ftp_base {
 		if (is_resource($fp)) $out = 0;
 		else $out='';
 		if (!$this->_passive) {
-			$this->SendMSG('Only passive connections available!');
+			$this->SendMSG('只能使用被动连接！');
 			return FALSE;
 		}
 		if ($mode != FTP_BINARY) {
@@ -759,7 +759,7 @@ class ftp extends ftp_base {
 		$NewLine = $this->NewLineCode[$this->OS_local];
 		$out = 0;
 		if (!$this->_passive) {
-			$this->SendMSG('Only passive connections available!');
+			$this->SendMSG('只能使用被动连接！');
 			return FALSE;
 		}
 		while (!feof($this->_ftp_data_sock)) {
@@ -775,7 +775,7 @@ class ftp extends ftp_base {
 		if (is_resource($fp)) $out = 0;
 		else $out="";
 		if (!$this->_passive) {
-			$this->SendMSG('Only passive connections available!');
+			$this->SendMSG('只能使用被动连接！');
 			return FALSE;
 		}
 		if (is_resource($fp)) {
@@ -784,7 +784,7 @@ class ftp extends ftp_base {
 				if ($mode != FTP_BINARY) $line = rtrim($line, CRLF) . CRLF;
 				do {
 					if (($res = @fwrite($this->_ftp_data_sock, $line)) === FALSE) {
-						$this->PushError('_data_write', "Can't write to socket");
+						$this->PushError('_data_write', "无法使用socket写入");
 						return FALSE;
 					} else {
 						updateFtpProgress(strlen($line));
@@ -796,7 +796,7 @@ class ftp extends ftp_base {
 			if ($mode != FTP_BINARY) $fp = rtrim($fp, $NewLine) . CRLF;
 			do {
 				if (($res = @fwrite($this->_ftp_data_sock, $fp)) === FALSE) {
-					$this->PushError('_data_write', "Can't write to socket");
+					$this->PushError('_data_write', "无法使用socket写入");
 					return FALSE;
 				} else {
 					updateFtpProgress(strlen($fp));
@@ -809,7 +809,7 @@ class ftp extends ftp_base {
 
 	function _data_close() {
 		@fclose($this->_ftp_data_sock);
-		$this->SendMSG('Disconnected data from remote host');
+		$this->SendMSG('从远程主机断开数据连接');
 		return TRUE;
 	}
 
@@ -817,7 +817,7 @@ class ftp extends ftp_base {
 		if ($this->_connected or $force) {
 			@fclose($this->_ftp_control_sock);
 			$this->_connected = false;
-			$this->SendMSG('Socket closed');
+			$this->SendMSG('Socket已关闭');
 		}
 	}
 

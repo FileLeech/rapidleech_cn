@@ -5,7 +5,7 @@
 // | Brazilian Organization                                               |
 // +----------------------------------------------------------------------+
 // | Viva ao Linux!                                                       |
-// | Porque nós amamos a liberdade!                                       |
+// | Porque né«Ž amamos a liberdade!                                       |
 // +----------------------------------------------------------------------+
 // | Class Perfect Crypt                                                  |
 // | Created By Igor Ribeiro de Assis                                     |

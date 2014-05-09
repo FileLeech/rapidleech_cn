@@ -396,7 +396,7 @@ function lang($id) {
 #need to keep premium account cookies safe!
 function encrypt($string) {
 	global $secretkey;
-	if (!$secretkey) return html_error('Value for $secretkey is empty, please create a random one (56 chars max) in config.php!');
+	if (!$secretkey) return html_error('$secretkey的值是空的，请在config.php填写任意数字（最多56字符）！');
 	require_once 'class.pcrypt.php';
 
 	/*
@@ -414,7 +414,7 @@ function encrypt($string) {
 
 function decrypt($string) {
 	global $secretkey;
-	if (!$secretkey) return html_error('Value for $secretkey is empty, please create a random one (56 chars max) in config.php!');
+	if (!$secretkey) return html_error('$secretkey的值是空的，请在config.php填写任意数字（最多56字符）！');
 	require_once 'class.pcrypt.php';
 
 	/*
@@ -482,7 +482,7 @@ function check_referer() {
 	if ($is_ext) {
 		// Uncomment next line if you want rickroll the users from Form leechers.
 		// header("Location: http://www.youtube.com/watch?v=oHg5SJYRHA0");
-		html_error(sprintf(lang(7), $refhost, 'External referer not allowed.'));
+		html_error(sprintf(lang(7), $refhost, '不允许外部引用'));
 	}
 }
 
