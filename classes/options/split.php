@@ -80,18 +80,18 @@ function split_go() {
 		$totalParts = ceil($fileSize / $partSize);
 		$crc = ($_POST['crc_mode'][$i] == 'file_read') ? dechex(crc32(read_file($file['name']))) : (($_POST['crc_mode'][$i] == 'hash_file' && function_exists('hash_file')) ? hash_file('crc32b', $file['name']) : '111111');
 		$crc = str_repeat('0', 8 - strlen($crc)) . strtoupper($crc);
-		echo "Started to split file <b>$dest_name</b> parts of " . bytesToKbOrMbOrGb($partSize) . ", Using Method - Total Commander...<br />";
+		echo "开始分割文件 <b>$dest_name</b> ，分块大小 " . bytesToKbOrMbOrGb($partSize) . "， 使用模块 - Total Commander...<br />";
 		echo "Total Parts: <b>$totalParts</b><br /><br />";
 		for($j = 1; $j <= $totalParts; $j++) {
 			if (file_exists("$saveTo$dest_name." . sprintf('%03d', $j))) {
-				echo "It is not possible to split the file. A piece already exists <b>$dest_name." . sprintf('%03d', $j) . '</b> !<br /><br />';
+				echo "无法分割文件。分块已存在 <b>$dest_name." . sprintf('%03d', $j) . '</b> ！<br /><br />';
 				continue 2;
 			}
 		}
-		if (file_exists("$saveTo$dest_name.crc")) echo "It is not possible to split the file. CRC file already exists <b>$dest_name.crc</b> !<br /><br />";
-		elseif (!is_file($file['name'])) echo "It is not possible to split the file. Source file not found <b>{$file['name']}</b> !<br /><br />";
-		elseif (!is_dir($saveTo)) echo "It is not possible to split the file. Directory doesn't exist<b>$saveTo</b> !<br /><br />";
-		elseif (!@write_file("$saveTo$dest_name.crc", "filename=$dest_name\r\nsize=$fileSize\r\ncrc32=$crc\r\n")) echo "It is not possible to split the file. CRC Error<b>$dest_name.crc" . "</b> !<br /><br />";
+		if (file_exists("$saveTo$dest_name.crc")) echo "无法分割文件。CRC文件已存在 <b>$dest_name.crc</b> ！<br /><br />";
+		elseif (!is_file($file['name'])) echo "无法分割文件。源文件 <b>{$file['name']}</b> 未找到！<br /><br />";
+		elseif (!is_dir($saveTo)) echo "无法分割文件。目录 <b>$saveTo</b> 不存在！<br /><br />";
+		elseif (!@write_file("$saveTo$dest_name.crc", "filename=$dest_name\r\nsize=$fileSize\r\ncrc32=$crc\r\n")) echo "无法分割文件。CRC错误<b>$dest_name.crc" . "</b> !<br /><br />";
 		else {
 			$time = filemtime("$saveTo$dest_name.crc");
 			while (isset($list[$time])) $time++;
@@ -99,7 +99,7 @@ function split_go() {
 			$split_buffer_size = 2 * 1024 * 1024;
 			$split_source = @fopen($file['name'], 'rb');
 			if (!$split_source) {
-				echo "It is not possible to open source file <b>{$file['name']}</b> !<br /><br />";
+				echo "无法打开源文件<b>{$file['name']}</b>！<br /><br />";
 				continue;
 			}
 			for($j = 1; $j <= $totalParts; $j++) {
@@ -108,7 +108,7 @@ function split_go() {
 				$dest_file = $saveTo . $part_name;
 				$split_dest = @fopen($dest_file, 'wb');
 				if (!$split_dest) {
-					echo "Error openning file <b>$part_name</b> !<br /><br />";
+					echo "打开文件<b>$part_name</b>时发送错误！<br /><br />";
 					$split_ok = false;
 					break;
 				}
@@ -117,7 +117,7 @@ function split_go() {
 					$split_buffer = fread($split_source, $split_buffer_size);
 					$split_written = fwrite($split_dest, $split_buffer);
 					if ($split_written === false || $split_written != strlen($split_buffer)) {
-						echo "Error writing the file <b>$part_name</b> !<br /><br />";
+						echo "写入文件<b>$part_name</b>写入文件<br /><br />";
 						$split_ok = false;
 						break;
 					}
@@ -127,7 +127,7 @@ function split_go() {
 					$split_buffer = fread($split_source, $split_rest);
 					$split_written = fwrite($split_dest, $split_buffer);
 					if ($split_written === false || $split_written != strlen($split_buffer)) {
-						echo "Error writing the file <b>$part_name</b> !<br /><br />";
+						echo "写入文件<b>$part_name</b>时发生错误！<br /><br />";
 						$split_ok = false;
 					}
 				}
@@ -142,10 +142,10 @@ function split_go() {
 			if ($split_ok && $_POST['del_ok'] && !$options['disable_deleting']) {
 				if (@unlink($file['name'])) {
 					unset($list[$_POST['files'][$i]]);
-					echo 'Source file deleted.<br /><br />';
-				} else echo 'Source file is<b>not deleted!</b><br /><br />';
+					echo '源文件已删除。<br /><br />';
+				} else echo '源文件<b>不会被删除！</b><br /><br />';
 			}
-			if (!updateListInFile($list)) echo "Couldn't update file list. Problem writing to file!<br /><br />";
+			if (!updateListInFile($list)) echo "无法更新文件列表。写入文件时发生问题！<br /><br />";
 		}
 	}
 }
