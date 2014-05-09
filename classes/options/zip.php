@@ -19,14 +19,14 @@ function zip() {
 				</table>
 				<table>
 					<tr>
-						<td><input type="submit" value="Add Files" /></td>
+						<td><input type="submit" value="添加文件" /></td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
 <?php
-	echo "<br />Selected File" . (count ( $_GET ["files"] ) > 1 ? "s" : "") . ": ";
+	echo "<br />已选择的文件" . (count ( $_GET ["files"] ) > 1 ? "s" : "") . ": ";
 	for($i = 0; $i < count ( $_GET ["files"] ); $i ++) {
 		$file = $list [($_GET ["files"] [$i])];
 		echo "<input type=\"hidden\" name=\"files[]\" value=\"{$_GET[files][$i]}\" />\r\n";

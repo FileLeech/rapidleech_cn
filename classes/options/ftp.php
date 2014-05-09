@@ -51,7 +51,7 @@ function ftp() {
 				<td>
 				<table>
 					<tr align="center">
-						<td><input type="submit" value="Upload" /></td>
+						<td><input type="submit" value="<?php echo lang(286); ?>" /></td>
 					</tr>
 					<tr align="center">
 						<td><?php echo lang(33); ?></td>

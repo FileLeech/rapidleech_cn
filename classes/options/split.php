@@ -81,7 +81,7 @@ function split_go() {
 		$crc = ($_POST['crc_mode'][$i] == 'file_read') ? dechex(crc32(read_file($file['name']))) : (($_POST['crc_mode'][$i] == 'hash_file' && function_exists('hash_file')) ? hash_file('crc32b', $file['name']) : '111111');
 		$crc = str_repeat('0', 8 - strlen($crc)) . strtoupper($crc);
 		echo "开始分割文件 <b>$dest_name</b> ，分块大小 " . bytesToKbOrMbOrGb($partSize) . "， 使用模块 - Total Commander...<br />";
-		echo "Total Parts: <b>$totalParts</b><br /><br />";
+		echo "分块总计： <b>$totalParts</b><br /><br />";
 		for($j = 1; $j <= $totalParts; $j++) {
 			if (file_exists("$saveTo$dest_name." . sprintf('%03d', $j))) {
 				echo "无法分割文件。分块已存在 <b>$dest_name." . sprintf('%03d', $j) . '</b> ！<br /><br />';

@@ -15,7 +15,7 @@ function rl_rename() {
 	<td align="center"><input type="hidden" name="files[]" value="<?php echo $_GET ["files"] [$i]; ?>" /><b><?php echo basename ( $file ["name"] ); ?></b></td>
 </tr>
 <tr>
-	<td><?php echo lang(201); ?>:&nbsp;<input type="text" name="newName[]" size="25"
+	<td><?php echo lang(201); ?>：&nbsp;<input type="text" name="newName[]" size="25"
 		value="<?php echo basename ( $file ["name"] ); ?>" /></td>
 </tr>
 <tr>
@@ -26,7 +26,7 @@ function rl_rename() {
 ?>
                                   </table>
 				</td>
-				<td><input type="submit" value="Rename" /></td>
+				<td><input type="submit" value="<?php echo lang(296); ?>" /></td>
 			</tr>
 			<tr>
 				<td></td>

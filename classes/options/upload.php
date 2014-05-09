@@ -59,7 +59,7 @@ function upload() {
 			<form action="upload.php" method="get" target="<?php echo $tid?>" onsubmit="return openwinup('<?php echo $tid?>');" style="padding-bottom: 6px;">
 			<select name="uploaded" id="d_<?php echo $tid;?>"></select><script type="text/javascript">fill_option('d_<?php echo $tid;?>');</script>
 			<input type="hidden" name="filename" value="<?php echo base64_encode ( $file ["name"] ); ?>" />
-			<input type="submit" value="Upload" />
+			<input type="submit" value="<?php echo lang(286); ?>" />
 			<br /><input type="checkbox" name="useuproxy" onclick="javascript:var displ=this.checked?'':'none';document.getElementById('uproxyconfig<?php echo $i; ?>').style.display=displ;" />&nbsp;<?php echo lang(245); ?>
 				<br /><table style="display:none;" width="150" border="0" id="uproxyconfig<?php echo $i; ?>">
 				<tr><td><?php echo lang(246); ?>:&nbsp;</td><td><input type="text" name="uproxy" size="20" /></td></tr>

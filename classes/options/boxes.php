@@ -4,7 +4,7 @@ function boxes() {
 ?>
 <form method="post" action="<?php echo $PHP_SELF; ?>"><input type="hidden" name="act" value="boxes_go" />
 <?php
-	echo count ( $_GET ["files"] ) . " file" . (count ( $_GET ["files"] ) > 1 ? "s" : "") . ":<br />";
+	echo count ( $_GET ["files"] ) . "个文件：<br />";
 	for($i = 0; $i < count ( $_GET ["files"] ); $i ++) {
 		$file = $list [($_GET ["files"] [$i])];
 ?>

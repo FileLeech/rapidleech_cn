@@ -1659,7 +1659,7 @@ class Archive_Tar extends PEAR
             if (!@rename($this->_tarname, $this->_tarname.".tmp")) {
                 $this->_error('重命名 \''.$this->_tarname
 				              .'\' 到临时文件 \''.$this->_tarname
-							  .'.tmp\'''时发生错误');
+							  .'.tmp\ 时发生错误\' ');
                 return false;
             }
 
@@ -1708,7 +1708,7 @@ class Archive_Tar extends PEAR
 
             if (!@unlink($this->_tarname.".tmp")) {
                 $this->_error('删除临时文件 \''
-				              .$this->_tarname.'.tmp\'''时发生错误');
+				              .$this->_tarname.'.tmp\ 时发生错误\' ');
             }
 
         } else {
